@@ -14,6 +14,8 @@
 		8A9C7CA31BF6A01400A92397 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A9C7CA11BF6A01400A92397 /* LaunchScreen.storyboard */; };
 		8A9C7CAE1BF6A01400A92397 /* aqx1010Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9C7CAD1BF6A01400A92397 /* aqx1010Tests.swift */; };
 		8A9C7CB91BF6A01400A92397 /* aqx1010UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9C7CB81BF6A01400A92397 /* aqx1010UITests.swift */; };
+		8AFAD68D1BF6A16C00756FA5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AFAD68C1BF6A16C00756FA5 /* GoogleService-Info.plist */; };
+		E7CEDF9FAF57F38715835BEB /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B77E6B50A577DED896DB84D7 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7C201F31CEDC137ADFD02492 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		8A9C7C951BF6A01400A92397 /* aqx1010.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = aqx1010.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A9C7C981BF6A01400A92397 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A9C7C9A1BF6A01400A92397 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +50,10 @@
 		8A9C7CB41BF6A01400A92397 /* aqx1010UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = aqx1010UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A9C7CB81BF6A01400A92397 /* aqx1010UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aqx1010UITests.swift; sourceTree = "<group>"; };
 		8A9C7CBA1BF6A01400A92397 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8AFAD68C1BF6A16C00756FA5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8AFAD68E1BF6A1EA00756FA5 /* aqx1010-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "aqx1010-Bridging-Header.h"; sourceTree = "<group>"; };
+		B77E6B50A577DED896DB84D7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3C7B8E55D90DA420E08EFCD /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7CEDF9FAF57F38715835BEB /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +89,8 @@
 				8A9C7CAC1BF6A01400A92397 /* aqx1010Tests */,
 				8A9C7CB71BF6A01400A92397 /* aqx1010UITests */,
 				8A9C7C961BF6A01400A92397 /* Products */,
+				D892694999C93BB59E75966D /* Pods */,
+				9A35D87316F851888E27E1CF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,12 +107,14 @@
 		8A9C7C971BF6A01400A92397 /* aqx1010 */ = {
 			isa = PBXGroup;
 			children = (
+				8AFAD68C1BF6A16C00756FA5 /* GoogleService-Info.plist */,
 				8A9C7C981BF6A01400A92397 /* AppDelegate.swift */,
 				8A9C7C9A1BF6A01400A92397 /* ViewController.swift */,
 				8A9C7C9C1BF6A01400A92397 /* Main.storyboard */,
 				8A9C7C9F1BF6A01400A92397 /* Assets.xcassets */,
 				8A9C7CA11BF6A01400A92397 /* LaunchScreen.storyboard */,
 				8A9C7CA41BF6A01400A92397 /* Info.plist */,
+				8AFAD68E1BF6A1EA00756FA5 /* aqx1010-Bridging-Header.h */,
 			);
 			path = aqx1010;
 			sourceTree = "<group>";
@@ -125,6 +137,23 @@
 			path = aqx1010UITests;
 			sourceTree = "<group>";
 		};
+		9A35D87316F851888E27E1CF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B77E6B50A577DED896DB84D7 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D892694999C93BB59E75966D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7C201F31CEDC137ADFD02492 /* Pods.debug.xcconfig */,
+				D3C7B8E55D90DA420E08EFCD /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +161,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8A9C7CBD1BF6A01400A92397 /* Build configuration list for PBXNativeTarget "aqx1010" */;
 			buildPhases = (
+				0ABAB3464E1D77F613961EE4 /* Check Pods Manifest.lock */,
 				8A9C7C911BF6A01400A92397 /* Sources */,
 				8A9C7C921BF6A01400A92397 /* Frameworks */,
 				8A9C7C931BF6A01400A92397 /* Resources */,
+				BA106DAB3E7270CC8AF7FD40 /* Embed Pods Frameworks */,
+				CBAE5ABEFD60722573F35437 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -230,6 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A9C7CA31BF6A01400A92397 /* LaunchScreen.storyboard in Resources */,
+				8AFAD68D1BF6A16C00756FA5 /* GoogleService-Info.plist in Resources */,
 				8A9C7CA01BF6A01400A92397 /* Assets.xcassets in Resources */,
 				8A9C7C9E1BF6A01400A92397 /* Main.storyboard in Resources */,
 			);
@@ -250,6 +283,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0ABAB3464E1D77F613961EE4 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BA106DAB3E7270CC8AF7FD40 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CBAE5ABEFD60722573F35437 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8A9C7C911BF6A01400A92397 /* Sources */ = {
@@ -397,23 +478,30 @@
 		};
 		8A9C7CBE1BF6A01400A92397 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7C201F31CEDC137ADFD02492 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = aqx1010/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.baliga.aqx1010;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "aqx1010/aqx1010-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		8A9C7CBF1BF6A01400A92397 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D3C7B8E55D90DA420E08EFCD /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = aqx1010/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.baliga.aqx1010;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "aqx1010/aqx1010-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -484,6 +572,7 @@
 				8A9C7CBF1BF6A01400A92397 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8A9C7CC01BF6A01400A92397 /* Build configuration list for PBXNativeTarget "aqx1010Tests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +581,7 @@
 				8A9C7CC21BF6A01400A92397 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8A9C7CC31BF6A01400A92397 /* Build configuration list for PBXNativeTarget "aqx1010UITests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +590,7 @@
 				8A9C7CC51BF6A01400A92397 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
