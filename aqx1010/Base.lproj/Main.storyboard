@@ -32,9 +32,6 @@
                             <constraint firstItem="Z0z-0R-GNh" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="157" id="f3f-e9-Afp"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <segue destination="fjz-br-nw4" kind="show" id="huS-vi-dnh"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -51,6 +48,15 @@
                     <view key="view" contentMode="scaleToFill" id="wMA-ay-Qtt">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fcL-vK-ABA">
+                                <rect key="frame" x="161" y="97" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
@@ -58,7 +64,7 @@
             </objects>
             <point key="canvasLocation" x="1146" y="977"/>
         </scene>
-        <!--Root View Controller-->
+        <!--My Systems-->
         <scene sceneID="heM-KC-UHb">
             <objects>
                 <tableViewController clearsSelectionOnViewWillAppear="NO" id="OH2-8I-pd0" sceneMemberID="viewController">
@@ -81,7 +87,7 @@
                             <outlet property="delegate" destination="OH2-8I-pd0" id="7hk-4Q-J3t"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="T3P-KK-TuK"/>
+                    <navigationItem key="navigationItem" title="My Systems" id="T3P-KK-TuK"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lfg-dv-SzE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -103,10 +109,10 @@
             </objects>
             <point key="canvasLocation" x="1344" y="20"/>
         </scene>
-        <!--Split View Controller-->
+        <!--My Split View Controller-->
         <scene sceneID="4Xf-g9-meb">
             <objects>
-                <splitViewController id="fjz-br-nw4" sceneMemberID="viewController">
+                <splitViewController storyboardIdentifier="StartViewController" id="fjz-br-nw4" customClass="MySplitViewController" customModule="aqx1010" customModuleProvider="target" sceneMemberID="viewController">
                     <connections>
                         <segue destination="BjG-Jb-e2O" kind="relationship" relationship="masterViewController" id="LAB-L9-8PH"/>
                         <segue destination="8Kj-nx-9nt" kind="relationship" relationship="detailViewController" id="b1y-H1-ULZ"/>

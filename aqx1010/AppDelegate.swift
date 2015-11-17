@@ -9,7 +9,7 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, UISplitViewControllerDelegate {
 
     var window: UIWindow?
 
@@ -60,10 +60,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         withError error: NSError!) {
             if (error == nil) {
                 // Perform any operations on signed in user here.
+                /*
                 let userId = user.userID                  // For client-side use only!
                 let idToken = user.authentication.idToken // Safe to send to the server
                 let name = user.profile.name
                 let email = user.profile.email
+*/
                 let refreshToken = user.authentication.refreshToken
                 let authToken = user.authentication.accessToken
                 print("refreshToken: " + refreshToken)
@@ -82,6 +84,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 }
                 task.resume()
                 // ...
+                let splitViewController = window?.rootViewController?.storyboard?.instantiateViewControllerWithIdentifier("StartViewController") as! UISplitViewController
+                splitViewController.delegate = self
+                window?.rootViewController = splitViewController
             } else {
                 print("\(error.localizedDescription)")
             }
@@ -91,5 +96,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         withError error: NSError!) {
             // Perform any operations when the user disconnects from app here.
             // ...
+    }
+    
+    func splitViewController(splitViewController: UISplitViewController,
+        collapseSecondaryViewController secondaryViewController: UIViewController,
+        ontoPrimaryViewController primaryViewController: UIViewController) -> Bool {
+            return true
     }
 }
