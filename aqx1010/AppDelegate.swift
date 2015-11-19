@@ -69,20 +69,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, UISpli
                 let refreshToken = user.authentication.refreshToken
                 let authToken = user.authentication.accessToken
                 print("refreshToken: " + refreshToken)
+                /*
                 let url = NSURL(string: "https://aquaponics.systemsbiology.net/api/v1.0/systems")
                 let config = NSURLSessionConfiguration.defaultSessionConfiguration()
                 let authString = "Bearer \(authToken)"
                 print("tokenasg: " + authString)
                 config.HTTPAdditionalHeaders = ["Authorization": authString]
                 //NSUserDefaults.standardUserDefaults().objectForKey("GoogleRefreshToken")
+*/
                 NSUserDefaults.standardUserDefaults().setObject(refreshToken, forKey: "GoogleRefreshToken")
+                NSUserDefaults.standardUserDefaults().setObject(authToken, forKey: "GoogleAuthToken")
                 // in table view
+                /*
                 let session = NSURLSession(configuration: config)
                 let task = session.dataTaskWithURL(url!) {(data, response, error) in
                     let s = NSString(data: data!, encoding: NSUTF8StringEncoding)
                     print(s)
                 }
-                task.resume()
+                task.resume()*/
                 // ...
                 let splitViewController = window?.rootViewController?.storyboard?.instantiateViewControllerWithIdentifier("StartViewController") as! UISplitViewController
                 splitViewController.delegate = self
