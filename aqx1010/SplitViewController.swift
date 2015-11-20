@@ -30,6 +30,7 @@ class AqxSystemInfo {
 }
 
 class MyTableViewController: UITableViewController {
+    let AQX_BASE_URL = "https://aquaponics.systemsbiology.net"
     var systems: NSMutableArray = []
     
     override func viewDidLoad() {
@@ -80,10 +81,18 @@ class MyTableViewController: UITableViewController {
         let system = systems[indexPath.row] as! AqxSystemInfo
         //cell.textLabel?.text = "Section \(indexPath.section) Row \(indexPath.row)"
         cell.textLabel?.text = "\(system.name)"
-        
+        let url: String = AQX_BASE_URL + "\(system.thumbnailURL)"
+        let thumbnail = NSURL(string: url)
+        cell.imageView?.image = UIImage(data: NSData(contentsOfURL: thumbnail!)!)
         return cell
     }
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "Systems"
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        print("tapped \(indexPath.row)")
+        let controller = storyboard?.instantiateViewControllerWithIdentifier("DetailView")
+        self.showDetailViewController(controller!, sender: self)
     }
 }

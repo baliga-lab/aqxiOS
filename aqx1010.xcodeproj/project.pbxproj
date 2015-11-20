@@ -14,6 +14,7 @@
 		8A9C7CA31BF6A01400A92397 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A9C7CA11BF6A01400A92397 /* LaunchScreen.storyboard */; };
 		8A9C7CAE1BF6A01400A92397 /* aqx1010Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9C7CAD1BF6A01400A92397 /* aqx1010Tests.swift */; };
 		8A9C7CB91BF6A01400A92397 /* aqx1010UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9C7CB81BF6A01400A92397 /* aqx1010UITests.swift */; };
+		8AAFF2D11BFAA40A0058E6D3 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AAFF2D01BFAA40A0058E6D3 /* SplitViewController.swift */; };
 		8AFAD68D1BF6A16C00756FA5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AFAD68C1BF6A16C00756FA5 /* GoogleService-Info.plist */; };
 		E7CEDF9FAF57F38715835BEB /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B77E6B50A577DED896DB84D7 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -50,6 +51,7 @@
 		8A9C7CB41BF6A01400A92397 /* aqx1010UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = aqx1010UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A9C7CB81BF6A01400A92397 /* aqx1010UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aqx1010UITests.swift; sourceTree = "<group>"; };
 		8A9C7CBA1BF6A01400A92397 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8AAFF2D01BFAA40A0058E6D3 /* SplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
 		8AFAD68C1BF6A16C00756FA5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8AFAD68E1BF6A1EA00756FA5 /* aqx1010-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "aqx1010-Bridging-Header.h"; sourceTree = "<group>"; };
 		B77E6B50A577DED896DB84D7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,6 +117,7 @@
 				8A9C7CA11BF6A01400A92397 /* LaunchScreen.storyboard */,
 				8A9C7CA41BF6A01400A92397 /* Info.plist */,
 				8AFAD68E1BF6A1EA00756FA5 /* aqx1010-Bridging-Header.h */,
+				8AAFF2D01BFAA40A0058E6D3 /* SplitViewController.swift */,
 			);
 			path = aqx1010;
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 			files = (
 				8A9C7C9B1BF6A01400A92397 /* ViewController.swift in Sources */,
 				8A9C7C991BF6A01400A92397 /* AppDelegate.swift in Sources */,
+				8AAFF2D11BFAA40A0058E6D3 /* SplitViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

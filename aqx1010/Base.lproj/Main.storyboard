@@ -40,7 +40,7 @@
         <!--View Controller-->
         <scene sceneID="06M-gW-cuG">
             <objects>
-                <viewController id="8Kj-nx-9nt" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailView" id="8Kj-nx-9nt" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Wz6-JY-QS1"/>
                         <viewControllerLayoutGuide type="bottom" id="eoz-dq-JOt"/>
@@ -62,7 +62,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eIV-gM-O6o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1146" y="977"/>
+            <point key="canvasLocation" x="1087" y="982"/>
         </scene>
         <!--My Systems-->
         <scene sceneID="heM-KC-UHb">
@@ -87,6 +87,9 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TaG-k3-y8F">
+                                            <rect key="frame" x="180" y="-42" width="240" height="128"/>
+                                        </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -97,6 +100,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="My Systems" id="T3P-KK-TuK"/>
+                    <connections>
+                        <segue destination="8Kj-nx-9nt" kind="showDetail" id="J7D-Kh-hfg"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lfg-dv-SzE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -132,4 +138,7 @@
             <point key="canvasLocation" x="602" y="204"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="J7D-Kh-hfg"/>
+    </inferredMetricsTieBreakers>
 </document>
