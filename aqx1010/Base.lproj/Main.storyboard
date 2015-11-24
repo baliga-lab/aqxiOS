@@ -37,10 +37,10 @@
             </objects>
             <point key="canvasLocation" x="-275" y="137"/>
         </scene>
-        <!--View Controller-->
+        <!--Aqx System Detail View Controller-->
         <scene sceneID="06M-gW-cuG">
             <objects>
-                <viewController storyboardIdentifier="DetailView" id="8Kj-nx-9nt" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailView" id="8Kj-nx-9nt" customClass="AqxSystemDetailViewController" customModule="aqx1010" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Wz6-JY-QS1"/>
                         <viewControllerLayoutGuide type="bottom" id="eoz-dq-JOt"/>
@@ -49,10 +49,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fcL-vK-ABA">
-                                <rect key="frame" x="161" y="97" width="240" height="128"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="4711" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="systemNameView" editable="NO" text="System Name here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fcL-vK-ABA">
+                                <rect key="frame" x="138" y="106" width="442" height="34"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="System Name" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="c5i-ce-WWR">
+                                <rect key="frame" x="20" y="106" width="110" height="34"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Technique" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="raW-ep-QYK">
+                                <rect key="frame" x="20" y="148" width="110" height="31"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="4712" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Technique here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="n2y-0J-E7e">
+                                <rect key="frame" x="138" y="148" width="442" height="31"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -139,6 +156,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="J7D-Kh-hfg"/>
+        <segue reference="b1y-H1-ULZ"/>
     </inferredMetricsTieBreakers>
 </document>

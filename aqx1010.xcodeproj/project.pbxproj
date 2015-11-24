@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		8A9C7C991BF6A01400A92397 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9C7C981BF6A01400A92397 /* AppDelegate.swift */; };
 		8A9C7C9B1BF6A01400A92397 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9C7C9A1BF6A01400A92397 /* ViewController.swift */; };
-		8A9C7C9E1BF6A01400A92397 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A9C7C9C1BF6A01400A92397 /* Main.storyboard */; };
+		8A9C7C9E1BF6A01400A92397 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A9C7C9C1BF6A01400A92397 /* Main.storyboard */; settings = {ASSET_TAGS = (sysnametag, ); }; };
 		8A9C7CA01BF6A01400A92397 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A9C7C9F1BF6A01400A92397 /* Assets.xcassets */; };
 		8A9C7CA31BF6A01400A92397 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A9C7CA11BF6A01400A92397 /* LaunchScreen.storyboard */; };
 		8A9C7CAE1BF6A01400A92397 /* aqx1010Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9C7CAD1BF6A01400A92397 /* aqx1010Tests.swift */; };
@@ -222,6 +222,9 @@
 		8A9C7C8D1BF6A01400A92397 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					sysnametag,
+				);
 				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Baliga Lab";
