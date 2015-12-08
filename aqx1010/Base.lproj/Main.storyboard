@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -37,10 +38,10 @@
             </objects>
             <point key="canvasLocation" x="-275" y="137"/>
         </scene>
-        <!--Aqx System Detail View Controller-->
+        <!--AQX Details-->
         <scene sceneID="06M-gW-cuG">
             <objects>
-                <viewController storyboardIdentifier="DetailView" id="8Kj-nx-9nt" customClass="AqxSystemDetailViewController" customModule="aqx1010" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailView" title="AQX Details" id="8Kj-nx-9nt" customClass="AqxSystemDetailViewController" customModule="aqx1010" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Wz6-JY-QS1"/>
                         <viewControllerLayoutGuide type="bottom" id="eoz-dq-JOt"/>
@@ -76,10 +77,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Details" id="1DK-Sa-A8S"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eIV-gM-O6o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1087" y="982"/>
+            <point key="canvasLocation" x="2395" y="700"/>
         </scene>
         <!--My Systems-->
         <scene sceneID="heM-KC-UHb">
@@ -118,12 +120,97 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="My Systems" id="T3P-KK-TuK"/>
                     <connections>
-                        <segue destination="8Kj-nx-9nt" kind="showDetail" id="J7D-Kh-hfg"/>
+                        <segue destination="X7s-AD-h5x" kind="showDetail" id="cIv-1a-zXb"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lfg-dv-SzE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2026" y="20"/>
+        </scene>
+        <!--Temperature-->
+        <scene sceneID="zy7-f3-ws7">
+            <objects>
+                <viewController id="1J1-vC-a2P" customClass="AqxMeasureTempController" customModule="aqx1010" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xof-PB-dJo"/>
+                        <viewControllerLayoutGuide type="bottom" id="MZp-Cw-Z0R"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zdR-Ry-hJ0">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Input Time/Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XpO-Ix-Ikw">
+                                <rect key="frame" x="20" y="71" width="123" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value (Degree Celsius)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AcC-DO-9xt">
+                                <rect key="frame" x="20" y="324" width="174" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" tag="4712" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vS8-h3-fe0">
+                                <rect key="frame" x="20" y="353" width="97" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="97" id="9fi-gl-t01"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J1m-Mt-HIv">
+                                <rect key="frame" x="20" y="393" width="49" height="30"/>
+                                <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="submit:" destination="1J1-vC-a2P" eventType="touchUpInside" id="QIj-gd-VRd"/>
+                                </connections>
+                            </button>
+                            <datePicker tag="4711" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="RsV-JQ-IlU">
+                                <rect key="frame" x="20" y="100" width="600" height="216"/>
+                                <date key="date" timeIntervalSinceReferenceDate="471221084.18365598">
+                                    <!--2015-12-07 22:44:44 +0000-->
+                                </date>
+                            </datePicker>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="RsV-JQ-IlU" firstAttribute="top" secondItem="XpO-Ix-Ikw" secondAttribute="bottom" constant="8" symbolic="YES" id="2Ah-Yp-upU"/>
+                            <constraint firstItem="XpO-Ix-Ikw" firstAttribute="top" secondItem="xof-PB-dJo" secondAttribute="bottom" constant="51" id="3yi-ff-2Qs"/>
+                            <constraint firstItem="RsV-JQ-IlU" firstAttribute="leading" secondItem="zdR-Ry-hJ0" secondAttribute="leadingMargin" id="5Ka-d2-bea"/>
+                            <constraint firstItem="RsV-JQ-IlU" firstAttribute="leading" secondItem="AcC-DO-9xt" secondAttribute="leading" id="5rw-0O-T5x"/>
+                            <constraint firstItem="J1m-Mt-HIv" firstAttribute="top" secondItem="vS8-h3-fe0" secondAttribute="bottom" constant="8" symbolic="YES" id="9fY-Ue-GJg"/>
+                            <constraint firstItem="XpO-Ix-Ikw" firstAttribute="leading" secondItem="RsV-JQ-IlU" secondAttribute="leading" id="Rfu-QK-LXH"/>
+                            <constraint firstItem="vS8-h3-fe0" firstAttribute="top" secondItem="AcC-DO-9xt" secondAttribute="bottom" constant="8" symbolic="YES" id="TTp-G6-KK5"/>
+                            <constraint firstItem="AcC-DO-9xt" firstAttribute="top" secondItem="RsV-JQ-IlU" secondAttribute="bottom" constant="8" symbolic="YES" id="Wr0-wz-w6V"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="RsV-JQ-IlU" secondAttribute="trailing" constant="-40" id="gP2-Fg-L02"/>
+                            <constraint firstItem="J1m-Mt-HIv" firstAttribute="leading" secondItem="vS8-h3-fe0" secondAttribute="leading" id="lye-oC-aVK"/>
+                            <constraint firstItem="vS8-h3-fe0" firstAttribute="leading" secondItem="AcC-DO-9xt" secondAttribute="leading" id="zRL-Zl-pYy"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Temperature" id="fAG-1x-blA"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wI9-ig-mW5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2278" y="1356"/>
+        </scene>
+        <!--Aqx System Tab Controller-->
+        <scene sceneID="905-pc-qcB">
+            <objects>
+                <tabBarController storyboardIdentifier="DetailTabView" id="X7s-AD-h5x" customClass="AqxSystemTabController" customModule="aqx1010" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="LLs-bd-dDL">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="8Kj-nx-9nt" kind="relationship" relationship="viewControllers" id="bZ0-DV-rhG"/>
+                        <segue destination="1J1-vC-a2P" kind="relationship" relationship="viewControllers" id="YeG-MF-E3Q"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NwQ-Jr-a4Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1479" y="936"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="24u-GM-1Zk">
@@ -144,18 +231,18 @@
         <!--My Split View Controller-->
         <scene sceneID="4Xf-g9-meb">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3yz-CO-alN" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <splitViewController storyboardIdentifier="StartViewController" id="fjz-br-nw4" customClass="MySplitViewController" customModule="aqx1010" customModuleProvider="target" sceneMemberID="viewController">
                     <connections>
                         <segue destination="BjG-Jb-e2O" kind="relationship" relationship="masterViewController" id="LAB-L9-8PH"/>
-                        <segue destination="8Kj-nx-9nt" kind="relationship" relationship="detailViewController" id="b1y-H1-ULZ"/>
+                        <segue destination="X7s-AD-h5x" kind="relationship" relationship="detailViewController" id="EyG-8p-Gjq"/>
                     </connections>
                 </splitViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3yz-CO-alN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="602" y="204"/>
+            <point key="canvasLocation" x="600" y="202"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="b1y-H1-ULZ"/>
+        <segue reference="cIv-1a-zXb"/>
     </inferredMetricsTieBreakers>
 </document>
