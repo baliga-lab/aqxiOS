@@ -11,8 +11,15 @@ import UIKit
 let TAG_SYSTEM_NAME      = 4711
 let TAG_SYSTEM_TECHNIQUE = 4712
 
-let TAG_DATE_PICKER = 4711
-let TAG_TEMP_INPUT = 4712
+let TAG_DATE_PICKER    = 4711
+let TAG_INPUT_TEMP     = 4712
+let TAG_INPUT_PH       = 4713
+let TAG_INPUT_AMMONIUM = 4714
+let TAG_INPUT_NITRATE  = 4715
+let TAG_INPUT_NITRITE  = 4716
+let TAG_INPUT_DIO      = 4717
+let TAG_INPUT_LIGHT    = 4718
+
 let API_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss'Z'"
 //let AQX_BASE_URL = "https://aquaponics.systemsbiology.net"
 let AQX_BASE_URL = "http://eric.systemsbiology.net:5000"
@@ -170,7 +177,14 @@ class AqxMeasureTempController : UIViewController {
     @IBAction func submit(sender: AnyObject) {
         let datePicker = self.view.viewWithTag(TAG_DATE_PICKER) as! UIDatePicker
         let date: NSDate = datePicker.date
-        let tempValue = self.view.viewWithTag(TAG_TEMP_INPUT) as! UITextField
+        let tempValue = self.view.viewWithTag(TAG_INPUT_TEMP) as! UITextField
+        let phValue = self.view.viewWithTag(TAG_INPUT_PH) as! UITextField
+        let ammoniumValue = self.view.viewWithTag(TAG_INPUT_AMMONIUM) as! UITextField
+        let nitrateValue = self.view.viewWithTag(TAG_INPUT_NITRATE) as! UITextField
+        let nitriteValue = self.view.viewWithTag(TAG_INPUT_NITRITE) as! UITextField
+        let dioValue = self.view.viewWithTag(TAG_INPUT_DIO) as! UITextField
+        let lightValue = self.view.viewWithTag(TAG_INPUT_DIO) as! UITextField
+        
         let formatter = NSDateFormatter()
         formatter.dateFormat = API_DATE_FORMAT
         let uid = (self.tabBarController as! AqxSystemTabController).uid
@@ -187,7 +201,14 @@ class AqxMeasureTempController : UIViewController {
         let measurements = NSMutableArray()
         let entry = NSMutableDictionary()
         entry["time"] = formatter.stringFromDate(date)
-        entry["temp"] = NSString(string: tempValue.text!).floatValue
+        if (tempValue.text != nil) { entry["temp"] = NSString(string: tempValue.text!).floatValue }
+        if (phValue.text != nil) { entry["ph"] = NSString(string: phValue.text!).floatValue }
+        if (ammoniumValue.text != nil) { entry["ammonium"] = NSString(string: ammoniumValue.text!).floatValue }
+        if (nitrateValue.text != nil) { entry["nitrate"] = NSString(string: nitrateValue.text!).floatValue }
+        if (nitriteValue.text != nil) { entry["nitrite"] = NSString(string: nitriteValue.text!).floatValue }
+        if (dioValue.text != nil) { entry["o2"] = NSString(string: dioValue.text!).floatValue }
+        if (lightValue.text != nil) { entry["light"] = NSString(string: lightValue.text!).floatValue }
+
         measurements.addObject(entry)
         data["measurements"] = measurements
         request.HTTPMethod = "POST"
@@ -209,23 +230,5 @@ class AqxMeasureTempController : UIViewController {
             task.resume()
         } catch {
         }
-        /*
-        let task = session.dataTaskWithURL(url!) {(data, response, error) in
-            let s = NSString(data: data!, encoding: NSUTF8StringEncoding)
-            print(s)
-            do {
-                let json = try NSJSONSerialization.JSONObjectWithData(s!.dataUsingEncoding(NSUTF8StringEncoding)!, options: NSJSONReadingOptions.MutableContainers)
-                let details = json as! NSDictionary
-                let sysname = (details["system_details"] as! NSDictionary)["name"] as! String
-                let technique = (details["system_details"] as! NSDictionary)["aqx_technique"] as! String
-                dispatch_async(dispatch_get_main_queue(), {
-                    let systemNameView = self.view.viewWithTag(TAG_SYSTEM_NAME) as! UITextView
-                    systemNameView.text = sysname
-                    let techniqueView = self.view.viewWithTag(TAG_SYSTEM_TECHNIQUE) as! UITextView
-                    techniqueView.text = technique
-                })
-            } catch {
-            }
-        }*/
     }
 }
