@@ -180,7 +180,8 @@ func rgb2Color(rgb: Int) -> CGColor {
                    blue: CGFloat(Double(rgb & 0xff) / 255.0), alpha: 1.0).CGColor
 }
 
-class AqxMeasurementsController : UIViewController {
+class AqxMeasurementsController : UIViewController, UITextFieldDelegate {
+
     override func viewDidLoad() {
         super.viewDidLoad()
         let phSlider = self.view.viewWithTag(TAG_SLIDER_PH) as! UISlider
@@ -198,8 +199,25 @@ class AqxMeasurementsController : UIViewController {
         let no2Slider = self.view.viewWithTag(TAG_SLIDER_NO2) as! UISlider
         let no2Colors = [rgb2Color(0xfefcf0), rgb2Color(0xfdf6f1), rgb2Color(0xfcecec), rgb2Color(0xfdb8d4), rgb2Color(0xf6a1c0), rgb2Color(0xfa91b3)]
         no2Slider.layer.insertSublayer(makeGradient(no2Slider.bounds, colors: no2Colors), atIndex: 0)
+        
+        (self.view.viewWithTag(TAG_INPUT_TEMP) as! UITextField).delegate = self
+        (self.view.viewWithTag(TAG_INPUT_PH) as! UITextField).delegate = self
+        (self.view.viewWithTag(TAG_INPUT_AMMONIUM) as! UITextField).delegate = self
+        (self.view.viewWithTag(TAG_INPUT_NITRATE) as! UITextField).delegate = self
+        (self.view.viewWithTag(TAG_INPUT_NITRITE) as! UITextField).delegate = self
+        (self.view.viewWithTag(TAG_INPUT_DIO) as! UITextField).delegate = self
+        (self.view.viewWithTag(TAG_INPUT_LIGHT) as! UITextField).delegate = self
     }
     
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+
     func makeGradient(bounds: CGRect, colors: [CGColor]) -> CAGradientLayer {
         let gradient = CAGradientLayer()
         gradient.frame = bounds
@@ -234,6 +252,7 @@ class AqxMeasurementsController : UIViewController {
     }
     
     @IBAction func submit(sender: AnyObject) {
+        self.view.endEditing(true)
         let datePicker = self.view.viewWithTag(TAG_DATE_PICKER) as! UIDatePicker
         let date: NSDate = datePicker.date
         let tempValue = self.view.viewWithTag(TAG_INPUT_TEMP) as! UITextField
