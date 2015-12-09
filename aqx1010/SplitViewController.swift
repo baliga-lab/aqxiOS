@@ -20,9 +20,14 @@ let TAG_INPUT_NITRITE  = 4716
 let TAG_INPUT_DIO      = 4717
 let TAG_INPUT_LIGHT    = 4718
 
+let TAG_SLIDER_PH      = 4720
+let TAG_SLIDER_NH4     = 4721
+let TAG_SLIDER_NO3     = 4722
+let TAG_SLIDER_NO2     = 4723
+
 let API_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss'Z'"
-//let AQX_BASE_URL = "https://aquaponics.systemsbiology.net"
-let AQX_BASE_URL = "http://eric.systemsbiology.net:5000"
+let AQX_BASE_URL = "https://aquaponics.systemsbiology.net"
+//let AQX_BASE_URL = "http://eric.systemsbiology.net:5000"
 let API_BASE_URL = AQX_BASE_URL + "/api/v1.0"
 
 
@@ -169,9 +174,63 @@ class AqxSystemDetailViewController : UIViewController {
     }
 }
 
-class AqxMeasureTempController : UIViewController {
+func rgb2Color(rgb: Int) -> CGColor {
+    return UIColor(red: CGFloat(Double((rgb >> 16) & 0xff) / 255.0),
+                   green: CGFloat(Double((rgb >> 8) & 0xff) / 255.0),
+                   blue: CGFloat(Double(rgb & 0xff) / 255.0), alpha: 1.0).CGColor
+}
+
+class AqxMeasurementsController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        let phSlider = self.view.viewWithTag(TAG_SLIDER_PH) as! UISlider
+        let phColors = [rgb2Color(0xfaac59), rgb2Color(0xee8243), rgb2Color(0xe35744), rgb2Color(0xe93e4d), rgb2Color(0xea185e)]
+        phSlider.layer.insertSublayer(makeGradient(phSlider.bounds, colors: phColors), atIndex: 0)
+
+        let nh4Slider = self.view.viewWithTag(TAG_SLIDER_NH4) as! UISlider
+        let nh4Colors = [rgb2Color(0xffe26d), rgb2Color(0xdde093), rgb2Color(0xc7dd8a), rgb2Color(0x9dd29c), rgb2Color(0x88b789)]
+        nh4Slider.layer.insertSublayer(makeGradient(nh4Slider.bounds, colors: nh4Colors), atIndex: 0)
+        
+        let no3Slider = self.view.viewWithTag(TAG_SLIDER_NO3) as! UISlider
+        let no3Colors = [rgb2Color(0xfffaed), rgb2Color(0xf9abcc), rgb2Color(0xf581b2), rgb2Color(0xe92b93), rgb2Color(0xde0084), rgb2Color(0xd50078)]
+        no3Slider.layer.insertSublayer(makeGradient(no3Slider.bounds, colors: no3Colors), atIndex: 0)
+        
+        let no2Slider = self.view.viewWithTag(TAG_SLIDER_NO2) as! UISlider
+        let no2Colors = [rgb2Color(0xfefcf0), rgb2Color(0xfdf6f1), rgb2Color(0xfcecec), rgb2Color(0xfdb8d4), rgb2Color(0xf6a1c0), rgb2Color(0xfa91b3)]
+        no2Slider.layer.insertSublayer(makeGradient(no2Slider.bounds, colors: no2Colors), atIndex: 0)
+    }
+    
+    func makeGradient(bounds: CGRect, colors: [CGColor]) -> CAGradientLayer {
+        let gradient = CAGradientLayer()
+        gradient.frame = bounds
+        gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
+        gradient.endPoint = CGPoint(x: 1.0, y: 0.5)
+        gradient.colors = colors
+        return gradient
+    }
+    
+    @IBAction func phSliderValueChanged(sender: UISlider) {
+        let textfield = self.view.viewWithTag(TAG_INPUT_PH) as! UITextField
+        let s = NSString(format: "%.2f", sender.value)
+        textfield.text = s as String
+    }
+
+    @IBAction func ammoniumSliderValueChanged(sender: UISlider) {
+        let textfield = self.view.viewWithTag(TAG_INPUT_AMMONIUM) as! UITextField
+        let s = NSString(format: "%.2f", sender.value)
+        textfield.text = s as String
+    }
+
+    @IBAction func nitrateSliderValueChanged(sender: UISlider) {
+        let textfield = self.view.viewWithTag(TAG_INPUT_NITRATE) as! UITextField
+        let s = NSString(format: "%.2f", sender.value)
+        textfield.text = s as String
+    }
+
+    @IBAction func nitriteSliderValueChanged(sender: UISlider) {
+        let textfield = self.view.viewWithTag(TAG_INPUT_NITRITE) as! UITextField
+        let s = NSString(format: "%.2f", sender.value)
+        textfield.text = s as String
     }
     
     @IBAction func submit(sender: AnyObject) {
