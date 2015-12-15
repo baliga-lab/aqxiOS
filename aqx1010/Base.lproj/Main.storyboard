@@ -27,7 +27,7 @@
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Project_Feed1010-Logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="Iuw-Wi-CsV">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Project_Feed1010-Logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="Iuw-Wi-CsV">
                                 <rect key="frame" x="157" y="83" width="100" height="53"/>
                             </imageView>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z0z-0R-GNh" customClass="GIDSignInButton" colorLabel="IBBuiltInLabel-Blue">
@@ -376,23 +376,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3yz-CO-alN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="340" y="1000"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="fBF-26-y0I">
-            <objects>
-                <viewController id="rXK-oj-Ily" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="u5B-yh-RgX"/>
-                        <viewControllerLayoutGuide type="bottom" id="uOp-7J-ebt"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="HRF-bX-O3G">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yHr-Fj-XH7" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
         </scene>
     </scenes>
     <resources>
