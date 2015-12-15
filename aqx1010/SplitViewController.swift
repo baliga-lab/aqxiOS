@@ -189,8 +189,6 @@ func interpolate(from: Float, to: Float, fraction: Float) -> Float {
 
 class AqxMeasurementsController : UIViewController, UITextFieldDelegate {
 
-    @IBOutlet weak var phPreview: UIView!
-
     let phCGColors = [rgb2CGColor(0xfaac59), rgb2CGColor(0xee8243), rgb2CGColor(0xe35744), rgb2CGColor(0xe93e4d), rgb2CGColor(0xea185e)]
     let phUIColors = [rgb2UIColor(0xfaac59), rgb2UIColor(0xee8243), rgb2UIColor(0xe35744), rgb2UIColor(0xe93e4d), rgb2UIColor(0xea185e)]
     let nh4CGColors = [rgb2CGColor(0xffe26d), rgb2CGColor(0xdde093), rgb2CGColor(0xc7dd8a), rgb2CGColor(0x9dd29c), rgb2CGColor(0x88b789)]
@@ -268,7 +266,7 @@ class AqxMeasurementsController : UIViewController, UITextFieldDelegate {
         let redInterp = interpolate(Float(red0), to: Float(red1), fraction: fraction)
         let blueInterp = interpolate(Float(blue0), to: Float(blue1), fraction: fraction)
         let greenInterp = interpolate(Float(green0), to: Float(green1), fraction: fraction)
-        phPreview.backgroundColor = UIColor(red: CGFloat(redInterp), green: CGFloat(greenInterp), blue: CGFloat(blueInterp), alpha: 1.0)
+        //phPreview.backgroundColor = UIColor(red: CGFloat(redInterp), green: CGFloat(greenInterp), blue: CGFloat(blueInterp), alpha: 1.0)
     }
 
     @IBAction func ammoniumSliderValueChanged(sender: UISlider) {
