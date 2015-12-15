@@ -22,6 +22,7 @@
 		8AAFF2E41C18E04C0058E6D3 /* area_chart-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AAFF2E31C18E04C0058E6D3 /* area_chart-50.png */; };
 		8AAFF2E61C18E0540058E6D3 /* combo_chart-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AAFF2E51C18E0540058E6D3 /* combo_chart-50.png */; };
 		8AFAD68D1BF6A16C00756FA5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AFAD68C1BF6A16C00756FA5 /* GoogleService-Info.plist */; };
+		BB6A70051C1A7D0F003D0B64 /* home.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BB6A70041C1A7D0F003D0B64 /* home.jpg */; };
 		E7CEDF9FAF57F38715835BEB /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B77E6B50A577DED896DB84D7 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +68,7 @@
 		8AFAD68C1BF6A16C00756FA5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8AFAD68E1BF6A1EA00756FA5 /* aqx1010-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "aqx1010-Bridging-Header.h"; sourceTree = "<group>"; };
 		B77E6B50A577DED896DB84D7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB6A70041C1A7D0F003D0B64 /* home.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = home.jpg; sourceTree = "<group>"; };
 		D3C7B8E55D90DA420E08EFCD /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -158,6 +160,7 @@
 		8AAFF2D61C18C1000058E6D3 /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				BB6A70041C1A7D0F003D0B64 /* home.jpg */,
 				8AAFF2DF1C18CF720058E6D3 /* combo_chart-32.png */,
 				8AAFF2E11C18CF7C0058E6D3 /* view_details-32.png */,
 				8AAFF2E31C18E04C0058E6D3 /* area_chart-50.png */,
@@ -296,6 +299,7 @@
 			files = (
 				8AAFF2E41C18E04C0058E6D3 /* area_chart-50.png in Resources */,
 				8AAFF2E21C18CF7C0058E6D3 /* view_details-32.png in Resources */,
+				BB6A70051C1A7D0F003D0B64 /* home.jpg in Resources */,
 				8AAFF2D41C18BE4B0058E6D3 /* isb_gray_blue_logo.png in Resources */,
 				8A9C7CA31BF6A01400A92397 /* LaunchScreen.storyboard in Resources */,
 				8AAFF2E61C18E0540058E6D3 /* combo_chart-50.png in Resources */,
