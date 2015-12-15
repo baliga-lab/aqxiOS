@@ -49,11 +49,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, UISpli
 
 
     // GIDSignInDelegate
-    func application(application: UIApplication,
-        openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+            print("ios8 login")
             return GIDSignIn.sharedInstance().handleURL(url,
                 sourceApplication: sourceApplication,
                 annotation: annotation)
+    }
+
+    func application(application: UIApplication,
+        openURL url: NSURL, options: [String: AnyObject]) -> Bool {
+            print("ios9 login")
+            return GIDSignIn.sharedInstance().handleURL(url,
+                sourceApplication: options[UIApplicationOpenURLOptionsSourceApplicationKey] as? String,
+                annotation: options[UIApplicationOpenURLOptionsAnnotationKey] as? String)
     }
     
     func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!,

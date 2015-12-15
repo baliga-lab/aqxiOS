@@ -19,7 +19,6 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
         GIDSignIn.sharedInstance().signInSilently()
         
         // TODO(developer) Configure the sign-in button look/feel
-        // ...
     }
 
     override func didReceiveMemoryWarning() {
