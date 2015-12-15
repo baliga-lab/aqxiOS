@@ -174,31 +174,42 @@ class AqxSystemDetailViewController : UIViewController {
     }
 }
 
-func rgb2Color(rgb: Int) -> CGColor {
+func rgb2CGColor(rgb: Int) -> CGColor {
+    return rgb2UIColor(rgb).CGColor
+}
+func rgb2UIColor(rgb: Int) -> UIColor {
     return UIColor(red: CGFloat(Double((rgb >> 16) & 0xff) / 255.0),
-                   green: CGFloat(Double((rgb >> 8) & 0xff) / 255.0),
-                   blue: CGFloat(Double(rgb & 0xff) / 255.0), alpha: 1.0).CGColor
+        green: CGFloat(Double((rgb >> 8) & 0xff) / 255.0),
+        blue: CGFloat(Double(rgb & 0xff) / 255.0), alpha: 1.0)
+}
+
+func interpolate(from: Float, to: Float, fraction: Float) -> Float {
+    return (to - from) * fraction + from
 }
 
 class AqxMeasurementsController : UIViewController, UITextFieldDelegate {
 
+    @IBOutlet weak var phPreview: UIView!
+
+    let phCGColors = [rgb2CGColor(0xfaac59), rgb2CGColor(0xee8243), rgb2CGColor(0xe35744), rgb2CGColor(0xe93e4d), rgb2CGColor(0xea185e)]
+    let phUIColors = [rgb2UIColor(0xfaac59), rgb2UIColor(0xee8243), rgb2UIColor(0xe35744), rgb2UIColor(0xe93e4d), rgb2UIColor(0xea185e)]
+    let nh4CGColors = [rgb2CGColor(0xffe26d), rgb2CGColor(0xdde093), rgb2CGColor(0xc7dd8a), rgb2CGColor(0x9dd29c), rgb2CGColor(0x88b789)]
+    let no3CGColors = [rgb2CGColor(0xfffaed), rgb2CGColor(0xf9abcc), rgb2CGColor(0xf581b2), rgb2CGColor(0xe92b93), rgb2CGColor(0xde0084), rgb2CGColor(0xd50078)]
+    let no2CGColors = [rgb2CGColor(0xfefcf0), rgb2CGColor(0xfdf6f1), rgb2CGColor(0xfcecec), rgb2CGColor(0xfdb8d4), rgb2CGColor(0xf6a1c0), rgb2CGColor(0xfa91b3)]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let phSlider = self.view.viewWithTag(TAG_SLIDER_PH) as! UISlider
-        let phColors = [rgb2Color(0xfaac59), rgb2Color(0xee8243), rgb2Color(0xe35744), rgb2Color(0xe93e4d), rgb2Color(0xea185e)]
-        phSlider.layer.insertSublayer(makeGradient(phSlider.bounds, colors: phColors), atIndex: 0)
+        phSlider.layer.insertSublayer(makeGradient(phSlider.bounds, colors: phCGColors), atIndex: 0)
 
         let nh4Slider = self.view.viewWithTag(TAG_SLIDER_NH4) as! UISlider
-        let nh4Colors = [rgb2Color(0xffe26d), rgb2Color(0xdde093), rgb2Color(0xc7dd8a), rgb2Color(0x9dd29c), rgb2Color(0x88b789)]
-        nh4Slider.layer.insertSublayer(makeGradient(nh4Slider.bounds, colors: nh4Colors), atIndex: 0)
+        nh4Slider.layer.insertSublayer(makeGradient(nh4Slider.bounds, colors: nh4CGColors), atIndex: 0)
         
         let no3Slider = self.view.viewWithTag(TAG_SLIDER_NO3) as! UISlider
-        let no3Colors = [rgb2Color(0xfffaed), rgb2Color(0xf9abcc), rgb2Color(0xf581b2), rgb2Color(0xe92b93), rgb2Color(0xde0084), rgb2Color(0xd50078)]
-        no3Slider.layer.insertSublayer(makeGradient(no3Slider.bounds, colors: no3Colors), atIndex: 0)
+        no3Slider.layer.insertSublayer(makeGradient(no3Slider.bounds, colors: no3CGColors), atIndex: 0)
         
         let no2Slider = self.view.viewWithTag(TAG_SLIDER_NO2) as! UISlider
-        let no2Colors = [rgb2Color(0xfefcf0), rgb2Color(0xfdf6f1), rgb2Color(0xfcecec), rgb2Color(0xfdb8d4), rgb2Color(0xf6a1c0), rgb2Color(0xfa91b3)]
-        no2Slider.layer.insertSublayer(makeGradient(no2Slider.bounds, colors: no2Colors), atIndex: 0)
+        no2Slider.layer.insertSublayer(makeGradient(no2Slider.bounds, colors: no2CGColors), atIndex: 0)
         
         (self.view.viewWithTag(TAG_INPUT_TEMP) as! UITextField).delegate = self
         (self.view.viewWithTag(TAG_INPUT_PH) as! UITextField).delegate = self
@@ -231,6 +242,33 @@ class AqxMeasurementsController : UIViewController, UITextFieldDelegate {
         let textfield = self.view.viewWithTag(TAG_INPUT_PH) as! UITextField
         let s = NSString(format: "%.2f", sender.value)
         textfield.text = s as String
+        
+        // compute preview color
+        let stops = phUIColors
+        let numStops = stops.count
+        let range = (sender.maximumValue - sender.minimumValue)
+        let segmentLength = range / Float(numStops - 1)
+        
+        // TODO: This is the global fraction, need fraction between stops
+        let fraction = (sender.value - sender.minimumValue) / range
+        
+        let segment = Int((sender.value - sender.minimumValue) / segmentLength)
+        print("value: ", sender.value, " range: ", range, " segment: ", segment, " fraction: ", fraction)
+        //phPreview.backgroundColor = UIColor(red: CGFloat(1.0), green: CGFloat(0.0), blue: CGFloat(0.0), alpha: 1.0)
+        let stop0 = stops[segment]
+        let stop1 = stops[segment < numStops ? (segment + 1) : segment]
+        var red0: CGFloat = 0, green0: CGFloat = 0, blue0: CGFloat = 0, alpha0: CGFloat = 0
+        var red1: CGFloat = 0, green1: CGFloat = 0, blue1: CGFloat = 0, alpha1: CGFloat = 0
+        if (stop0.getRed(&red0, green: &green0, blue: &blue0, alpha: &alpha0)) {
+            print("stop0, r = ", red0, " g = ", green0, " b = ", blue0, " alpha = ", alpha0)
+        }
+        if (stop1.getRed(&red1, green: &green1, blue: &blue1, alpha: &alpha1)) {
+            print("stop1, r = ", red1, " g = ", green1, " b = ", blue1, " alpha = ", alpha1)
+        }
+        let redInterp = interpolate(Float(red0), to: Float(red1), fraction: fraction)
+        let blueInterp = interpolate(Float(blue0), to: Float(blue1), fraction: fraction)
+        let greenInterp = interpolate(Float(green0), to: Float(green1), fraction: fraction)
+        phPreview.backgroundColor = UIColor(red: CGFloat(redInterp), green: CGFloat(greenInterp), blue: CGFloat(blueInterp), alpha: 1.0)
     }
 
     @IBAction func ammoniumSliderValueChanged(sender: UISlider) {
