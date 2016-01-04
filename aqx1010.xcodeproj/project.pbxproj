@@ -23,7 +23,6 @@
 		8AAFF2E61C18E0540058E6D3 /* combo_chart-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AAFF2E51C18E0540058E6D3 /* combo_chart-50.png */; };
 		8AFAD68D1BF6A16C00756FA5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AFAD68C1BF6A16C00756FA5 /* GoogleService-Info.plist */; };
 		BB6A70051C1A7D0F003D0B64 /* home.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BB6A70041C1A7D0F003D0B64 /* home.jpg */; };
-		BB7317641C38730500A4199D /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7317631C38730500A4199D /* SWRevealViewController.m */; };
 		BB7317661C3895C600A4199D /* NitrateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7317651C3895C600A4199D /* NitrateViewController.swift */; };
 		BB7317681C38A45000A4199D /* NitriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7317671C38A45000A4199D /* NitriteViewController.swift */; };
 		BB73176A1C39CCC400A4199D /* AmmoniumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7317691C39CCC400A4199D /* AmmoniumViewController.swift */; };
@@ -97,8 +96,6 @@
 		8AFAD68E1BF6A1EA00756FA5 /* aqx1010-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "aqx1010-Bridging-Header.h"; sourceTree = "<group>"; };
 		B77E6B50A577DED896DB84D7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB6A70041C1A7D0F003D0B64 /* home.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = home.jpg; sourceTree = "<group>"; };
-		BB7317621C38730500A4199D /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
-		BB7317631C38730500A4199D /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		BB7317651C3895C600A4199D /* NitrateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NitrateViewController.swift; sourceTree = "<group>"; };
 		BB7317671C38A45000A4199D /* NitriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NitriteViewController.swift; sourceTree = "<group>"; };
 		BB7317691C39CCC400A4199D /* AmmoniumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AmmoniumViewController.swift; path = ../AmmoniumViewController.swift; sourceTree = "<group>"; };
@@ -180,7 +177,6 @@
 		8A9C7C971BF6A01400A92397 /* aqx1010 */ = {
 			isa = PBXGroup;
 			children = (
-				BB7317601C3872C700A4199D /* SidebarMenu */,
 				8AAFF2D61C18C1000058E6D3 /* icons */,
 				8AFAD68C1BF6A16C00756FA5 /* GoogleService-Info.plist */,
 				BB7317691C39CCC400A4199D /* AmmoniumViewController.swift */,
@@ -260,23 +256,6 @@
 				B77E6B50A577DED896DB84D7 /* libPods.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		BB7317601C3872C700A4199D /* SidebarMenu */ = {
-			isa = PBXGroup;
-			children = (
-				BB7317611C3872E200A4199D /* SWRevealViewController */,
-			);
-			name = SidebarMenu;
-			sourceTree = "<group>";
-		};
-		BB7317611C3872E200A4199D /* SWRevealViewController */ = {
-			isa = PBXGroup;
-			children = (
-				BB7317621C38730500A4199D /* SWRevealViewController.h */,
-				BB7317631C38730500A4199D /* SWRevealViewController.m */,
-			);
-			name = SWRevealViewController;
 			sourceTree = "<group>";
 		};
 		D892694999C93BB59E75966D /* Pods */ = {
@@ -512,7 +491,6 @@
 				BB7317681C38A45000A4199D /* NitriteViewController.swift in Sources */,
 				8AAFF2D11BFAA40A0058E6D3 /* SplitViewController.swift in Sources */,
 				BB7317661C3895C600A4199D /* NitrateViewController.swift in Sources */,
-				BB7317641C38730500A4199D /* SWRevealViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
