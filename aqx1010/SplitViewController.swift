@@ -89,7 +89,6 @@ class MyTableViewController: UITableViewController {
             }
         }
         task.resume()
-
     }
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -113,6 +112,7 @@ class MyTableViewController: UITableViewController {
         cell.imageView?.image = UIImage(data: NSData(contentsOfURL: thumbnail!)!)
         return cell
     }
+    
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "Systems"
     }
@@ -143,12 +143,14 @@ class AqxSystemDetailViewController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         let uid = (self.tabBarController as! AqxSystemTabController).uid
         print("load the details")
         
         let authToken = NSUserDefaults.standardUserDefaults().objectForKey("GoogleAuthToken") as! String
         let url = NSURL(string: API_BASE_URL + "/system/" + uid)
         print(url)
+        
         let config = NSURLSessionConfiguration.defaultSessionConfiguration()
         let authString = "Bearer \(authToken)"
         config.HTTPAdditionalHeaders = ["Authorization": authString]
@@ -250,8 +252,8 @@ class AqxMeasurementsController : UIViewController, UITextFieldDelegate {
         // TODO: This is the global fraction, need fraction between stops
         let fraction = (sender.value - sender.minimumValue) / range
         
-        let segment = Int((sender.value - sender.minimumValue) / segmentLength)
-        print("value: ", sender.value, " range: ", range, " segment: ", segment, " fraction: ", fraction)
+        let segment = min(Int((sender.value - sender.minimumValue) / segmentLength), numStops - 1)
+        print("value: ", sender.value, " range: ", range, " segment: ", segment, " fraction: ", fraction, " # stops: ", numStops)
         //phPreview.backgroundColor = UIColor(red: CGFloat(1.0), green: CGFloat(0.0), blue: CGFloat(0.0), alpha: 1.0)
         let stop0 = stops[segment]
         let stop1 = stops[segment < numStops ? (segment + 1) : segment]
@@ -307,7 +309,7 @@ class AqxMeasurementsController : UIViewController, UITextFieldDelegate {
         
         let authToken = NSUserDefaults.standardUserDefaults().objectForKey("GoogleAuthToken") as! String
         let url = NSURL(string: API_BASE_URL + "/measurements/" + uid)
-        print(url)
+        print("Splitview URL \(url)")
         
         // data: {"measurements": [{"time": <time>, "temp": <value>, ...}]}
         let request = NSMutableURLRequest(URL: url!)
