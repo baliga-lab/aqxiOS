@@ -36,6 +36,9 @@ class MySplitViewController: UISplitViewController {
         super.viewDidLoad()
         print("mysplitview loaded")
         self.preferredDisplayMode = UISplitViewControllerDisplayMode.PrimaryOverlay
+         UINavigationBar.appearance().barTintColor = UIColor(red: 118/255, green: 204/255, blue: 207/255, alpha: 1.0)
+         UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
     }
 }
 
@@ -51,8 +54,15 @@ class AqxSystemInfo {
     }
 }
 
-class MyTableViewController: UITableViewController {
+class MyTableViewController: UITableViewController, GIDSignInUIDelegate {
     var systems: NSMutableArray = []
+    
+    @IBAction func didTapSignOut(sender: AnyObject) {
+        GIDSignIn.sharedInstance().signOut()
+        let vc : AnyObject! = self.storyboard!.instantiateViewControllerWithIdentifier("loginscreen")
+        self.showViewController(vc as! UIViewController, sender: vc)
+        self.navigationController?.navigationBarHidden = true
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -136,6 +146,8 @@ class AqxSystemTabController : UITabBarController {
     var uid: String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
+        UITabBar.appearance().tintColor = UIColor(red: 118/255, green: 204/255, blue: 207/255, alpha: 1.0)
+        //UITabBar.appearance().barTintColor = UIColor(red: 255/255, green: 204/255, blue: 43/255, alpha: 0.2)
     }
 }
 

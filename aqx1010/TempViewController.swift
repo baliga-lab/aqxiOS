@@ -18,6 +18,7 @@ class TempViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         (self.view.viewWithTag(TAG_INPUT_TEMP) as! UITextField).delegate = self
+
     }
     
     override func viewDidLayoutSubviews() {

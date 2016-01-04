@@ -32,18 +32,21 @@
 		BB7317721C39DFFF00A4199D /* chart-tab-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BB7317711C39DFFF00A4199D /* chart-tab-icon.png */; };
 		BB7317741C39E03C00A4199D /* social-tab-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BB7317731C39E03C00A4199D /* social-tab-icon.png */; };
 		BB739F741C39ED01002D10B5 /* SocialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB739F731C39ED01002D10B5 /* SocialViewController.swift */; };
+		BB9A25921C3A4ED10044518E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9A25911C3A4ED10044518E /* SettingsViewController.swift */; };
+		BB9A25941C3A4F8F0044518E /* logout-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BB9A25931C3A4F8F0044518E /* logout-icon.png */; };
 		BBC24F7A1C3265AB004A4DFB /* light-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BBC24F731C3265AB004A4DFB /* light-icon.png */; };
 		BBC24F7B1C3265AB004A4DFB /* oxygen-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BBC24F741C3265AB004A4DFB /* oxygen-icon.png */; };
 		BBC24F7C1C3265AB004A4DFB /* nitrite-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BBC24F751C3265AB004A4DFB /* nitrite-icon.png */; };
 		BBC24F7D1C3265AB004A4DFB /* nitrate-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BBC24F761C3265AB004A4DFB /* nitrate-icon.png */; };
 		BBC24F7E1C3265AB004A4DFB /* ammonium-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BBC24F771C3265AB004A4DFB /* ammonium-icon.png */; };
-		BBC24F7F1C3265AB004A4DFB /* temp-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BBC24F781C3265AB004A4DFB /* temp-icon.png */; };
-		BBC24F801C3265AB004A4DFB /* ph-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BBC24F791C3265AB004A4DFB /* ph-icon.png */; };
 		BBC24F821C32789F004A4DFB /* TempViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC24F811C32789F004A4DFB /* TempViewController.swift */; };
 		BBC9DCCF1C3343B1000A6966 /* temp-tab-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BBC9DCCE1C3343B1000A6966 /* temp-tab-icon.png */; };
 		BBC9DCD11C334441000A6966 /* ph-tab-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BBC9DCD01C334441000A6966 /* ph-tab-icon.png */; };
 		BBC9DCD51C3345E6000A6966 /* nitrate-tab-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BBC9DCD41C3345E6000A6966 /* nitrate-tab-icon.png */; };
 		BBC9DCD71C3346C2000A6966 /* nitrite-tab-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BBC9DCD61C3346C2000A6966 /* nitrite-tab-icon.png */; };
+		BBCF056F1C3A3E5500D12034 /* pf1010-linen-green-logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BBCF056E1C3A3E5500D12034 /* pf1010-linen-green-logo.jpg */; };
+		BBCF05721C3A49EF00D12034 /* ph-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BBCF05701C3A49EF00D12034 /* ph-icon.png */; };
+		BBCF05731C3A49EF00D12034 /* temp-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BBCF05711C3A49EF00D12034 /* temp-icon.png */; };
 		BBDBF83D1C27F06A008942D3 /* slider-control.png in Resources */ = {isa = PBXBuildFile; fileRef = BBDBF83A1C27F06A008942D3 /* slider-control.png */; };
 		BBDBF83E1C27F06A008942D3 /* slider-highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = BBDBF83B1C27F06A008942D3 /* slider-highlight.png */; };
 		BBDBF83F1C27F06A008942D3 /* slider-bckg.png in Resources */ = {isa = PBXBuildFile; fileRef = BBDBF83C1C27F06A008942D3 /* slider-bckg.png */; };
@@ -104,18 +107,21 @@
 		BB7317711C39DFFF00A4199D /* chart-tab-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chart-tab-icon.png"; sourceTree = "<group>"; };
 		BB7317731C39E03C00A4199D /* social-tab-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "social-tab-icon.png"; sourceTree = "<group>"; };
 		BB739F731C39ED01002D10B5 /* SocialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialViewController.swift; sourceTree = "<group>"; };
+		BB9A25911C3A4ED10044518E /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		BB9A25931C3A4F8F0044518E /* logout-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logout-icon.png"; sourceTree = "<group>"; };
 		BBC24F731C3265AB004A4DFB /* light-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "light-icon.png"; sourceTree = "<group>"; };
 		BBC24F741C3265AB004A4DFB /* oxygen-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "oxygen-icon.png"; sourceTree = "<group>"; };
 		BBC24F751C3265AB004A4DFB /* nitrite-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nitrite-icon.png"; sourceTree = "<group>"; };
 		BBC24F761C3265AB004A4DFB /* nitrate-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nitrate-icon.png"; sourceTree = "<group>"; };
 		BBC24F771C3265AB004A4DFB /* ammonium-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ammonium-icon.png"; sourceTree = "<group>"; };
-		BBC24F781C3265AB004A4DFB /* temp-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "temp-icon.png"; sourceTree = "<group>"; };
-		BBC24F791C3265AB004A4DFB /* ph-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ph-icon.png"; sourceTree = "<group>"; };
 		BBC24F811C32789F004A4DFB /* TempViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TempViewController.swift; sourceTree = "<group>"; };
 		BBC9DCCE1C3343B1000A6966 /* temp-tab-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "temp-tab-icon.png"; sourceTree = "<group>"; };
 		BBC9DCD01C334441000A6966 /* ph-tab-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ph-tab-icon.png"; sourceTree = "<group>"; };
 		BBC9DCD41C3345E6000A6966 /* nitrate-tab-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nitrate-tab-icon.png"; sourceTree = "<group>"; };
 		BBC9DCD61C3346C2000A6966 /* nitrite-tab-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nitrite-tab-icon.png"; sourceTree = "<group>"; };
+		BBCF056E1C3A3E5500D12034 /* pf1010-linen-green-logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "pf1010-linen-green-logo.jpg"; sourceTree = "<group>"; };
+		BBCF05701C3A49EF00D12034 /* ph-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ph-icon.png"; sourceTree = "<group>"; };
+		BBCF05711C3A49EF00D12034 /* temp-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "temp-icon.png"; sourceTree = "<group>"; };
 		BBDBF83A1C27F06A008942D3 /* slider-control.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slider-control.png"; sourceTree = "<group>"; };
 		BBDBF83B1C27F06A008942D3 /* slider-highlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slider-highlight.png"; sourceTree = "<group>"; };
 		BBDBF83C1C27F06A008942D3 /* slider-bckg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slider-bckg.png"; sourceTree = "<group>"; };
@@ -179,7 +185,9 @@
 				8AFAD68C1BF6A16C00756FA5 /* GoogleService-Info.plist */,
 				BB7317691C39CCC400A4199D /* AmmoniumViewController.swift */,
 				8A9C7C981BF6A01400A92397 /* AppDelegate.swift */,
+				BBCF056E1C3A3E5500D12034 /* pf1010-linen-green-logo.jpg */,
 				8A9C7C9A1BF6A01400A92397 /* ViewController.swift */,
+				BB9A25911C3A4ED10044518E /* SettingsViewController.swift */,
 				BB739F731C39ED01002D10B5 /* SocialViewController.swift */,
 				8A9C7C9C1BF6A01400A92397 /* Main.storyboard */,
 				BBF657DF1C24D8F20096DF50 /* pHViewController.swift */,
@@ -219,6 +227,9 @@
 			isa = PBXGroup;
 			children = (
 				BBC24F731C3265AB004A4DFB /* light-icon.png */,
+				BBCF05701C3A49EF00D12034 /* ph-icon.png */,
+				BB9A25931C3A4F8F0044518E /* logout-icon.png */,
+				BBCF05711C3A49EF00D12034 /* temp-icon.png */,
 				BB7317731C39E03C00A4199D /* social-tab-icon.png */,
 				BB7317711C39DFFF00A4199D /* chart-tab-icon.png */,
 				BB73176F1C39DEAD00A4199D /* dashboard-tab-icon.png */,
@@ -231,8 +242,6 @@
 				BBC24F751C3265AB004A4DFB /* nitrite-icon.png */,
 				BBC24F761C3265AB004A4DFB /* nitrate-icon.png */,
 				BBC24F771C3265AB004A4DFB /* ammonium-icon.png */,
-				BBC24F781C3265AB004A4DFB /* temp-icon.png */,
-				BBC24F791C3265AB004A4DFB /* ph-icon.png */,
 				BBDBF83A1C27F06A008942D3 /* slider-control.png */,
 				BBDBF83B1C27F06A008942D3 /* slider-highlight.png */,
 				BBDBF83C1C27F06A008942D3 /* slider-bckg.png */,
@@ -392,6 +401,7 @@
 			files = (
 				BBC24F7A1C3265AB004A4DFB /* light-icon.png in Resources */,
 				8AAFF2E41C18E04C0058E6D3 /* area_chart-50.png in Resources */,
+				BBCF05721C3A49EF00D12034 /* ph-icon.png in Resources */,
 				BB7317741C39E03C00A4199D /* social-tab-icon.png in Resources */,
 				BBC24F7B1C3265AB004A4DFB /* oxygen-icon.png in Resources */,
 				8AAFF2E21C18CF7C0058E6D3 /* view_details-32.png in Resources */,
@@ -407,15 +417,16 @@
 				8A9C7CA01BF6A01400A92397 /* Assets.xcassets in Resources */,
 				BBDBF83E1C27F06A008942D3 /* slider-highlight.png in Resources */,
 				8AAFF2D51C18BE4B0058E6D3 /* Project_Feed1010-Logo.png in Resources */,
+				BBCF056F1C3A3E5500D12034 /* pf1010-linen-green-logo.jpg in Resources */,
+				BB9A25941C3A4F8F0044518E /* logout-icon.png in Resources */,
 				BBC9DCD51C3345E6000A6966 /* nitrate-tab-icon.png in Resources */,
 				8AAFF2E01C18CF720058E6D3 /* combo_chart-32.png in Resources */,
 				BBC9DCD11C334441000A6966 /* ph-tab-icon.png in Resources */,
 				BB73176E1C39DD8000A4199D /* settings-tab-icon.png in Resources */,
-				BBC24F7F1C3265AB004A4DFB /* temp-icon.png in Resources */,
 				8A9C7C9E1BF6A01400A92397 /* Main.storyboard in Resources */,
 				BBDBF83F1C27F06A008942D3 /* slider-bckg.png in Resources */,
 				BB7317701C39DEAD00A4199D /* dashboard-tab-icon.png in Resources */,
-				BBC24F801C3265AB004A4DFB /* ph-icon.png in Resources */,
+				BBCF05731C3A49EF00D12034 /* temp-icon.png in Resources */,
 				BB7317721C39DFFF00A4199D /* chart-tab-icon.png in Resources */,
 				BBC9DCD71C3346C2000A6966 /* nitrite-tab-icon.png in Resources */,
 				BBC24F7E1C3265AB004A4DFB /* ammonium-icon.png in Resources */,
@@ -493,6 +504,7 @@
 			files = (
 				BBF657E01C24D8F20096DF50 /* pHViewController.swift in Sources */,
 				BBC24F821C32789F004A4DFB /* TempViewController.swift in Sources */,
+				BB9A25921C3A4ED10044518E /* SettingsViewController.swift in Sources */,
 				8A9C7C9B1BF6A01400A92397 /* ViewController.swift in Sources */,
 				8A9C7C991BF6A01400A92397 /* AppDelegate.swift in Sources */,
 				BB73176A1C39CCC400A4199D /* AmmoniumViewController.swift in Sources */,
