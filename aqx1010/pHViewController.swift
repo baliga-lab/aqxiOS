@@ -18,7 +18,7 @@ class pHViewController: UIViewController, UITextFieldDelegate {
     
     let TAG_INPUT_PH       = 47130
     let TAG_SLIDER_PH      = 47200
-    
+    var uid: String = ""
     
     @IBOutlet weak var phPreview: UIView!
     
@@ -35,7 +35,7 @@ class pHViewController: UIViewController, UITextFieldDelegate {
 //        phSlider.setMaximumTrackImage(UIImage(named: "slider-bckg.png" ), forState: .Normal)
         
         phPreview.backgroundColor = UIColor(red: 0.89, green: 0.34, blue: 0.27, alpha: 1)
-
+        print("uid: " + self.uid)
         (self.view.viewWithTag(TAG_INPUT_PH) as! UITextField).delegate = self
     }
     
@@ -107,11 +107,10 @@ class pHViewController: UIViewController, UITextFieldDelegate {
         
         let formatter = NSDateFormatter()
         formatter.dateFormat = API_DATE_FORMAT
-        let uid = (self.tabBarController as! AqxSystemTabController).uid
         print("date: " + formatter.stringFromDate(date))
         
         let authToken = NSUserDefaults.standardUserDefaults().objectForKey("GoogleAuthToken") as! String
-        let url = NSURL(string: API_BASE_URL + "/measurements/" + uid)
+        let url = NSURL(string: API_BASE_URL + "/measurements/" + self.uid)
         print(url)
         
         // data: {"measurements": [{"time": <time>, "temp": <value>, ...}]}

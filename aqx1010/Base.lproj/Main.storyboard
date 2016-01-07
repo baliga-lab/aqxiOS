@@ -236,7 +236,7 @@
                                 <rect key="frame" x="21" y="304" width="63" height="75"/>
                                 <state key="normal" title="Button" image="ph-icon.png"/>
                                 <connections>
-                                    <segue destination="Zgs-LI-lKT" kind="push" id="9cU-XC-TZh"/>
+                                    <segue destination="Zgs-LI-lKT" kind="push" identifier="MeasurePH" id="9cU-XC-TZh"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B24-Zb-bxt">
@@ -1026,6 +1026,13 @@
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" keyboardAppearance="alert"/>
                             </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ph-icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="p7d-8J-eaY">
+                                <rect key="frame" x="345" y="68" width="46" height="54"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="GW4-fk-ueI"/>
+                                    <constraint firstAttribute="height" constant="54" id="nYt-EB-7Nd"/>
+                                </constraints>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JVx-Td-1r5">
                                 <rect key="frame" x="96" y="391" width="99" height="30"/>
                                 <color key="backgroundColor" red="0.30588235289999999" green="0.6705882353" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -1037,16 +1044,10 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="submit:" destination="Zgs-LI-lKT" eventType="touchUpInside" id="3MF-gR-KK1"/>
                                     <action selector="submit:" destination="1J1-vC-a2P" eventType="touchUpInside" id="vQP-Lq-BZi"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ph-icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="p7d-8J-eaY">
-                                <rect key="frame" x="345" y="68" width="46" height="54"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="46" id="GW4-fk-ueI"/>
-                                    <constraint firstAttribute="height" constant="54" id="nYt-EB-7Nd"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
