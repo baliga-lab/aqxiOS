@@ -186,6 +186,15 @@ class AqxSystemDetailViewController : UIViewController {
         }
         task.resume()
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "MeasurePH"
+        {
+            if let destView = segue.destinationViewController as? pHViewController {
+                destView.uid = (self.tabBarController as! AqxSystemTabController).uid
+            }
+        }
+    }
 }
 
 func rgb2CGColor(rgb: Int) -> CGColor {
