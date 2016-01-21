@@ -10,6 +10,7 @@ import UIKit
 
 class AmmoniumViewController: UIViewController, UITextFieldDelegate {
     
+    var uid: String = ""
     @IBOutlet weak var nh4Preview: UIView!
     @IBOutlet weak var ammoniumSlider: UISlider!
     
@@ -88,11 +89,10 @@ class AmmoniumViewController: UIViewController, UITextFieldDelegate {
         
         let formatter = NSDateFormatter()
         formatter.dateFormat = API_DATE_FORMAT
-        let uid = (self.tabBarController as! AqxSystemTabController).uid
         print("date: " + formatter.stringFromDate(date))
         
         let authToken = NSUserDefaults.standardUserDefaults().objectForKey("GoogleAuthToken") as! String
-        let url = NSURL(string: API_BASE_URL + "/measurements/" + uid)
+        let url = NSURL(string: API_BASE_URL + "/measurements/" + self.uid)
         print("Splitview URL \(url)")
         
         // data: {"measurements": [{"time": <time>, "temp": <value>, ...}]}

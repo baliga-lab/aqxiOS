@@ -20,11 +20,18 @@ class pHViewController: UIViewController, UITextFieldDelegate {
     let TAG_SLIDER_PH      = 47200
     var uid: String = ""
     
+    
+    @IBOutlet weak var phSubmissionStatus: UILabel!
+    
     @IBOutlet weak var phPreview: UIView!
     
     @IBOutlet weak var phSlider: UISlider!
     let phCGColors = [rgb2CGColor(0xfaac59), rgb2CGColor(0xee8243), rgb2CGColor(0xe35744), rgb2CGColor(0xe93e4d), rgb2CGColor(0xea185e)]
     let phUIColors = [rgb2UIColor(0xfaac59), rgb2UIColor(0xee8243), rgb2UIColor(0xe35744), rgb2UIColor(0xe93e4d), rgb2UIColor(0xea185e)]
+    
+    func showError() {
+        phSubmissionStatus.text = "There was an error with your submission"
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -101,6 +108,7 @@ class pHViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func submit(sender: AnyObject) {
         self.view.endEditing(true)
+        var phValueError = false
         let datePicker = self.view.viewWithTag(TAG_DATE_PICKER) as! UIDatePicker
         let date: NSDate = datePicker.date
         let phValue = self.view.viewWithTag(TAG_INPUT_PH) as! UITextField
@@ -119,7 +127,11 @@ class pHViewController: UIViewController, UITextFieldDelegate {
         let measurements = NSMutableArray()
         let entry = NSMutableDictionary()
         entry["time"] = formatter.stringFromDate(date)
-        if (phValue.text != nil) { entry["ph"] = NSString(string: phValue.text!).floatValue }
+        if (phValue.text != nil) { entry["ph"] = NSString(string: phValue.text!).floatValue } else {
+            phValueError = true
+            showError()
+            //phSubmissionStatus.text = "Error: Your pH value is empty"
+        }
         
         measurements.addObject(entry)
         data["measurements"] = measurements
@@ -130,17 +142,41 @@ class pHViewController: UIViewController, UITextFieldDelegate {
             let str = NSString.init(data: outdata, encoding: NSUTF8StringEncoding)
             print(str)
             request.HTTPBody = outdata
+        
             
             let config = NSURLSessionConfiguration.defaultSessionConfiguration()
             let authString = "Bearer \(authToken)"
             config.HTTPAdditionalHeaders = ["Authorization": authString]
             let session = NSURLSession(configuration: config)
             let task = session.dataTaskWithRequest(request) {(data, response, error) in
-                let s = NSString(data: data!, encoding: NSUTF8StringEncoding)
-                print(s)
+                if error == nil {
+                    let s = NSString(data: data!, encoding: NSUTF8StringEncoding)
+                    print(s!)
+                } else {
+                    phValueError = true
+                }
+                
+                dispatch_async(dispatch_get_main_queue()) {
+                    
+                    if phValueError == true {
+                        print("Error:\n \(error)")
+                        self.showError()
+                    } else {
+                        let alertController = UIAlertController(title: "Submission Successfull!", message:String("You successfully submitted \n pH: \(phValue.text!)"), preferredStyle: UIAlertControllerStyle.Alert)
+                        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+                        
+                        self.presentViewController(alertController, animated: true, completion: nil)
+                        
+                        self.phSubmissionStatus.text = String("Last submission: pH: \(phValue.text!) \n Time: \(formatter.stringFromDate(date))")
+                    }
+                }
+                
+                
             }
             task.resume()
         } catch {
+            print("Error:\n \(error)")
+            self.phSubmissionStatus.text = "Error:\n \(error)"
         }
     }
 }

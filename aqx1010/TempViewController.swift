@@ -13,6 +13,8 @@ class TempViewController: UIViewController, UITextFieldDelegate {
     let TAG_DATE_PICKER    = 4711
     let TAG_INPUT_TEMP     = 47120
     
+    var uid: String = ""
+    
     @IBOutlet weak var statusLabel: UILabel!
     
     override func viewDidLoad() {
@@ -44,12 +46,11 @@ class TempViewController: UIViewController, UITextFieldDelegate {
         
         let formatter = NSDateFormatter()
         formatter.dateFormat = API_DATE_FORMAT
-        let uid = (self.tabBarController as! AqxSystemTabController).uid
         print("date: " + formatter.stringFromDate(date))
         print("temperature: " + tempValue.text!)
         
         let authToken = NSUserDefaults.standardUserDefaults().objectForKey("GoogleAuthToken") as! String
-        let url = NSURL(string: API_BASE_URL + "/measurements/" + uid)
+        let url = NSURL(string: API_BASE_URL + "/measurements/" + self.uid)
         
         // data: {"measurements": [{"time": <time>, "temp": <value>, ...}]}
         let request = NSMutableURLRequest(URL: url!)

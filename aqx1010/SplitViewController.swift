@@ -153,6 +153,7 @@ class AqxSystemTabController : UITabBarController {
 
 class AqxSystemDetailViewController : UIViewController {
     
+    @IBOutlet weak var phDashboard: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -188,12 +189,44 @@ class AqxSystemDetailViewController : UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // seque for submitting pH measurements
         if segue.identifier == "MeasurePH"
         {
             if let destView = segue.destinationViewController as? pHViewController {
                 destView.uid = (self.tabBarController as! AqxSystemTabController).uid
             }
         }
+        // seque for submitting Temperature measurements
+        if segue.identifier == "MeasureTemp"
+        {
+            if let destView = segue.destinationViewController as? TempViewController {
+                destView.uid = (self.tabBarController as! AqxSystemTabController).uid
+            }
+        }
+        // seque for submitting Nitrate measurements
+        if segue.identifier == "MeasureNitrate"
+        {
+            if let destView = segue.destinationViewController as? NitrateViewController {
+                destView.uid = (self.tabBarController as! AqxSystemTabController).uid
+            }
+        }
+        // seque for submitting Nitrite measurements
+        if segue.identifier == "MeasureNitrite"
+        {
+            if let destView = segue.destinationViewController as? NitriteViewController {
+                destView.uid = (self.tabBarController as! AqxSystemTabController).uid
+            }
+        }
+        // seque for submitting Ammonium measurements
+        if segue.identifier == "MeasureAmmonium"
+        {
+            if let destView = segue.destinationViewController as? AmmoniumViewController {
+                destView.uid = (self.tabBarController as! AqxSystemTabController).uid
+            }
+        }
+
+        
+
     }
 }
 
