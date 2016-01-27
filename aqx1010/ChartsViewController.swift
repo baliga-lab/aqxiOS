@@ -21,11 +21,11 @@ class ChartsViewController: UIViewController, ChartViewDelegate {
     let unitsSold = [07.20, 07.00, 07.40, 07.30, 07.00, 07.20]
     let temp = [23.0, 27.0, 28.0, 18.0, 26.0, 24.0]
 
-    
-    func tempChartValueSelected(chartView: BarChartView, entry: BarChartDataEntry, dataSetIndex: Int, highlight: BarChartHighlighter) {
+    /*
+    func tempChartValueSelected(chartView: BarChartView, entry: BarChartDataEntry, dataSetIndex: Int, highlight: ChartHighlighter) {
         tempDataSelected.text = "\(entry.value) in \(months[entry.xIndex])"
         print("\(entry.value) in \(months[entry.xIndex])")
-    }
+    }*/
 
     
     func chartValueSelected(chartView: ChartViewBase, entry: ChartDataEntry, dataSetIndex: Int, highlight: ChartHighlight) {

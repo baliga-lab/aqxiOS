@@ -80,8 +80,8 @@ class MyTableViewController: UITableViewController, GIDSignInUIDelegate {
                 print("in TABLEVIEW")
                 print(s)
                 do {
-                    let json = try NSJSONSerialization.JSONObjectWithData(s!.dataUsingEncoding(NSUTF8StringEncoding)!, options: NSJSONReadingOptions.MutableContainers)
-                    let systems = json["systems"]! as! [NSDictionary]
+                    let jsonObj = try NSJSONSerialization.JSONObjectWithData(s!.dataUsingEncoding(NSUTF8StringEncoding)!, options: NSJSONReadingOptions.MutableContainers)
+                    let systems = (jsonObj as! NSDictionary)["systems"]! as! [NSDictionary]
                     for system: NSDictionary in systems {
                         print(system["uid"])
                         print(system["name"])

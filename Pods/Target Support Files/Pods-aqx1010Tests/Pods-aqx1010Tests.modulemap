@@ -1,0 +1,6 @@
+framework module Pods_aqx1010Tests {
+  umbrella header "Pods-aqx1010Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

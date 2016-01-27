@@ -23,8 +23,6 @@
 		8AAFF2E61C18E0540058E6D3 /* combo_chart-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AAFF2E51C18E0540058E6D3 /* combo_chart-50.png */; };
 		8AFAD68D1BF6A16C00756FA5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AFAD68C1BF6A16C00756FA5 /* GoogleService-Info.plist */; };
 		BB6458131C4783E800AB3A83 /* ChartsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6458121C4783E800AB3A83 /* ChartsViewController.swift */; };
-		BB6458201C47845D00AB3A83 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB64581B1C47844000AB3A83 /* Charts.framework */; };
-		BB6458211C47845D00AB3A83 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BB64581B1C47844000AB3A83 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BB6A70051C1A7D0F003D0B64 /* home.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BB6A70041C1A7D0F003D0B64 /* home.jpg */; };
 		BB7317661C3895C600A4199D /* NitrateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7317651C3895C600A4199D /* NitrateViewController.swift */; };
 		BB7317681C38A45000A4199D /* NitriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7317671C38A45000A4199D /* NitriteViewController.swift */; };
@@ -53,7 +51,7 @@
 		BBDBF83E1C27F06A008942D3 /* slider-highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = BBDBF83B1C27F06A008942D3 /* slider-highlight.png */; };
 		BBDBF83F1C27F06A008942D3 /* slider-bckg.png in Resources */ = {isa = PBXBuildFile; fileRef = BBDBF83C1C27F06A008942D3 /* slider-bckg.png */; };
 		BBF657E01C24D8F20096DF50 /* pHViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF657DF1C24D8F20096DF50 /* pHViewController.swift */; };
-		E7CEDF9FAF57F38715835BEB /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B77E6B50A577DED896DB84D7 /* libPods.a */; };
+		D161D3D5B00325EE33BD6147 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAB2214ED3B0AF617FC09D90 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,34 +69,6 @@
 			remoteGlobalIDString = 8A9C7C941BF6A01400A92397;
 			remoteInfo = aqx1010;
 		};
-		BB64581A1C47844000AB3A83 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BB6458141C47843F00AB3A83 /* Charts.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 5BA8EC401A9D14DC00CE82E1;
-			remoteInfo = "Charts-iOS";
-		};
-		BB64581C1C47844000AB3A83 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BB6458141C47843F00AB3A83 /* Charts.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = A52C5C371BAC5CA400594CDD;
-			remoteInfo = "Charts-TV";
-		};
-		BB64581E1C47844000AB3A83 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BB6458141C47843F00AB3A83 /* Charts.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 06AEE7A21BDC3F8B009875AE;
-			remoteInfo = ChartsTests;
-		};
-		BB6458221C47845D00AB3A83 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BB6458141C47843F00AB3A83 /* Charts.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 5BA8EC3F1A9D14DC00CE82E1;
-			remoteInfo = "Charts-iOS";
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -108,7 +78,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				BB6458211C47845D00AB3A83 /* Charts.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -139,9 +108,7 @@
 		8AAFF2E51C18E0540058E6D3 /* combo_chart-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "combo_chart-50.png"; sourceTree = "<group>"; };
 		8AFAD68C1BF6A16C00756FA5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8AFAD68E1BF6A1EA00756FA5 /* aqx1010-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "aqx1010-Bridging-Header.h"; sourceTree = "<group>"; };
-		B77E6B50A577DED896DB84D7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB6458121C4783E800AB3A83 /* ChartsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartsViewController.swift; sourceTree = "<group>"; };
-		BB6458141C47843F00AB3A83 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = Charts/Charts.xcodeproj; sourceTree = SOURCE_ROOT; };
 		BB6A70041C1A7D0F003D0B64 /* home.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = home.jpg; sourceTree = "<group>"; };
 		BB7317651C3895C600A4199D /* NitrateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NitrateViewController.swift; sourceTree = "<group>"; };
 		BB7317671C38A45000A4199D /* NitriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NitriteViewController.swift; sourceTree = "<group>"; };
@@ -170,6 +137,7 @@
 		BBDBF83B1C27F06A008942D3 /* slider-highlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slider-highlight.png"; sourceTree = "<group>"; };
 		BBDBF83C1C27F06A008942D3 /* slider-bckg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slider-bckg.png"; sourceTree = "<group>"; };
 		BBF657DF1C24D8F20096DF50 /* pHViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = pHViewController.swift; sourceTree = "<group>"; };
+		CAB2214ED3B0AF617FC09D90 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3C7B8E55D90DA420E08EFCD /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -178,8 +146,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7CEDF9FAF57F38715835BEB /* libPods.a in Frameworks */,
-				BB6458201C47845D00AB3A83 /* Charts.framework in Frameworks */,
+				D161D3D5B00325EE33BD6147 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,7 +213,6 @@
 				8AAFF2D01BFAA40A0058E6D3 /* SplitViewController.swift */,
 				BB7317671C38A45000A4199D /* NitriteViewController.swift */,
 				BB6458121C4783E800AB3A83 /* ChartsViewController.swift */,
-				BB6458141C47843F00AB3A83 /* Charts.xcodeproj */,
 			);
 			path = aqx1010;
 			sourceTree = "<group>";
@@ -303,19 +269,9 @@
 		9A35D87316F851888E27E1CF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B77E6B50A577DED896DB84D7 /* libPods.a */,
+				CAB2214ED3B0AF617FC09D90 /* Pods.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		BB6458151C47843F00AB3A83 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				BB64581B1C47844000AB3A83 /* Charts.framework */,
-				BB64581D1C47844000AB3A83 /* Charts.framework */,
-				BB64581F1C47844000AB3A83 /* ChartsTests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		D892694999C93BB59E75966D /* Pods */ = {
@@ -345,7 +301,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				BB6458231C47845D00AB3A83 /* PBXTargetDependency */,
 			);
 			name = aqx1010;
 			productName = aqx1010;
@@ -426,12 +381,6 @@
 			mainGroup = 8A9C7C8C1BF6A01400A92397;
 			productRefGroup = 8A9C7C961BF6A01400A92397 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = BB6458151C47843F00AB3A83 /* Products */;
-					ProjectRef = BB6458141C47843F00AB3A83 /* Charts.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				8A9C7C941BF6A01400A92397 /* aqx1010 */,
@@ -440,30 +389,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		BB64581B1C47844000AB3A83 /* Charts.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Charts.framework;
-			remoteRef = BB64581A1C47844000AB3A83 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		BB64581D1C47844000AB3A83 /* Charts.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Charts.framework;
-			remoteRef = BB64581C1C47844000AB3A83 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		BB64581F1C47844000AB3A83 /* ChartsTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = ChartsTests.xctest;
-			remoteRef = BB64581E1C47844000AB3A83 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		8A9C7C931BF6A01400A92397 /* Resources */ = {
@@ -616,11 +541,6 @@
 			target = 8A9C7C941BF6A01400A92397 /* aqx1010 */;
 			targetProxy = 8A9C7CB51BF6A01400A92397 /* PBXContainerItemProxy */;
 		};
-		BB6458231C47845D00AB3A83 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Charts-iOS";
-			targetProxy = BB6458221C47845D00AB3A83 /* PBXContainerItemProxy */;
-		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -679,7 +599,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -718,7 +638,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -734,7 +654,6 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = aqx1010/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -754,7 +673,6 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = aqx1010/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
