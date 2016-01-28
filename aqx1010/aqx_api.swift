@@ -23,7 +23,7 @@ func requestData(url: NSURL, fun: (NSDictionary) -> Void) {
     let session = NSURLSession(configuration: config)
     let task = session.dataTaskWithURL(url) {(data, response, error) in
         let s = NSString(data: data!, encoding: NSUTF8StringEncoding)
-        print(s)
+        //print(s)
         do {
             let json = try NSJSONSerialization.JSONObjectWithData(s!.dataUsingEncoding(NSUTF8StringEncoding)!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
             fun(json)

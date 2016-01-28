@@ -18,8 +18,6 @@ class ChartsViewController: UIViewController, ChartViewDelegate {
     @IBOutlet weak var lineChartView: LineChartView!
     
     let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"]
-    let unitsSold = [07.20, 07.00, 07.40, 07.30, 07.00, 07.20]
-    let temp = [23.0, 27.0, 28.0, 18.0, 26.0, 24.0]
 
     /*
     func tempChartValueSelected(chartView: BarChartView, entry: BarChartDataEntry, dataSetIndex: Int, highlight: ChartHighlighter) {
@@ -32,17 +30,31 @@ class ChartsViewController: UIViewController, ChartViewDelegate {
         phDataSelected.text = "\(entry.value) in \(months[entry.xIndex])"
         print("\(entry.value) in \(months[entry.xIndex])")
     }
-    
-    
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        let uid = (self.tabBarController as! AqxSystemTabController).uid
         lineChartView.delegate = self
         tempChartView.delegate = self
-        setChart(months, values: unitsSold)
-        setTempChart(months, values: temp)
+        apiGetMeasurements(uid, fun: { (measurements: NSDictionary) -> Void in
+            let phvals = (measurements["ph"] as! NSArray).map({
+                ($0 as! NSDictionary)["value"] as! Double
+            })
+            let phlabels = (measurements["ph"] as! NSArray).map({
+                ($0 as! NSDictionary)["time"] as! String
+            })
+            let tempvals = (measurements["temp"] as! NSArray).map({
+                ($0 as! NSDictionary)["value"] as! Double
+            })
+            let templabels = (measurements["temp"] as! NSArray).map({
+                ($0 as! NSDictionary)["time"] as! String
+            })
+            
+            dispatch_async(dispatch_get_main_queue(), {
+                self.setChart(phlabels, values: phvals)
+                self.setTempChart(templabels, values: tempvals)
+            })
+        })
         navigationItem.title = "Analytics"
     }
     
