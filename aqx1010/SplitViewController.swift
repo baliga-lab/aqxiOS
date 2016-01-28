@@ -25,11 +25,6 @@ let TAG_SLIDER_NH4     = 4721
 let TAG_SLIDER_NO3     = 4722
 let TAG_SLIDER_NO2     = 4723
 
-let API_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss'Z'"
-let AQX_BASE_URL = "https://aquaponics.systemsbiology.net"
-//let AQX_BASE_URL = "http://eric.systemsbiology.net:5000"
-let API_BASE_URL = AQX_BASE_URL + "/api/v1.0"
-
 
 class MySplitViewController: UISplitViewController {
     override func viewDidLoad() {
@@ -160,32 +155,17 @@ class AqxSystemDetailViewController : UIViewController {
         let uid = (self.tabBarController as! AqxSystemTabController).uid
         print("load the details")
         
-        let authToken = NSUserDefaults.standardUserDefaults().objectForKey("GoogleAuthToken") as! String
-        let url = NSURL(string: API_BASE_URL + "/system/" + uid)
-        print(url)
-        
-        let config = NSURLSessionConfiguration.defaultSessionConfiguration()
-        let authString = "Bearer \(authToken)"
-        config.HTTPAdditionalHeaders = ["Authorization": authString]
-        let session = NSURLSession(configuration: config)
-        let task = session.dataTaskWithURL(url!) {(data, response, error) in
-            let s = NSString(data: data!, encoding: NSUTF8StringEncoding)
-            print(s)
-            do {
-                let json = try NSJSONSerialization.JSONObjectWithData(s!.dataUsingEncoding(NSUTF8StringEncoding)!, options: NSJSONReadingOptions.MutableContainers)
-                let details = json as! NSDictionary
-                let sysname = (details["system_details"] as! NSDictionary)["name"] as! String
-                let technique = (details["system_details"] as! NSDictionary)["aqx_technique"] as! String
-                dispatch_async(dispatch_get_main_queue(), {
-                    let systemNameView = self.view.viewWithTag(TAG_SYSTEM_NAME) as! UITextView
-                    systemNameView.text = sysname
-                    let techniqueView = self.view.viewWithTag(TAG_SYSTEM_TECHNIQUE) as! UITextView
-                    techniqueView.text = technique
-                })
-            } catch {
-            }
-        }
-        task.resume()
+        apiGetDetails(uid, fun: { (details: NSDictionary) -> Void in
+            let sysname = (details["system_details"] as! NSDictionary)["name"] as! String
+            let technique = (details["system_details"] as! NSDictionary)["aqx_technique"] as! String
+            dispatch_async(dispatch_get_main_queue(), {
+                let systemNameView = self.view.viewWithTag(TAG_SYSTEM_NAME) as! UITextView
+                systemNameView.text = sysname
+                let techniqueView = self.view.viewWithTag(TAG_SYSTEM_TECHNIQUE) as! UITextView
+                techniqueView.text = technique
+            })
+            
+        })
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

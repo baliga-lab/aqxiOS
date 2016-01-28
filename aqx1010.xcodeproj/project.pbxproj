@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A3F7A5F1C59905400568A02 /* aqx_api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3F7A5E1C59905400568A02 /* aqx_api.swift */; };
 		8A9C7C991BF6A01400A92397 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9C7C981BF6A01400A92397 /* AppDelegate.swift */; };
 		8A9C7C9B1BF6A01400A92397 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9C7C9A1BF6A01400A92397 /* ViewController.swift */; };
 		8A9C7C9E1BF6A01400A92397 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A9C7C9C1BF6A01400A92397 /* Main.storyboard */; settings = {ASSET_TAGS = (sysnametag, ); }; };
@@ -86,6 +87,7 @@
 
 /* Begin PBXFileReference section */
 		7C201F31CEDC137ADFD02492 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		8A3F7A5E1C59905400568A02 /* aqx_api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = aqx_api.swift; sourceTree = "<group>"; };
 		8A9C7C951BF6A01400A92397 /* aqx1010.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = aqx1010.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A9C7C981BF6A01400A92397 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A9C7C9A1BF6A01400A92397 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 				8AAFF2D01BFAA40A0058E6D3 /* SplitViewController.swift */,
 				BB7317671C38A45000A4199D /* NitriteViewController.swift */,
 				BB6458121C4783E800AB3A83 /* ChartsViewController.swift */,
+				8A3F7A5E1C59905400568A02 /* aqx_api.swift */,
 			);
 			path = aqx1010;
 			sourceTree = "<group>";
@@ -509,6 +512,7 @@
 				BB7317681C38A45000A4199D /* NitriteViewController.swift in Sources */,
 				8AAFF2D11BFAA40A0058E6D3 /* SplitViewController.swift in Sources */,
 				BB7317661C3895C600A4199D /* NitrateViewController.swift in Sources */,
+				8A3F7A5F1C59905400568A02 /* aqx_api.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
