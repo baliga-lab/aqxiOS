@@ -17,7 +17,11 @@ class ChartsViewController: UIViewController, ChartViewDelegate {
     @IBOutlet weak var phDataSelected: UILabel!
     @IBOutlet weak var lineChartView: LineChartView!
     
-    let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"]
+    //let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"]
+    var phvals: [Double] = []
+    var phlabels: [String] = []
+    var tempvals: [Double] = []
+    var templabels: [String] = []
 
     /*
     func tempChartValueSelected(chartView: BarChartView, entry: BarChartDataEntry, dataSetIndex: Int, highlight: ChartHighlighter) {
@@ -27,8 +31,8 @@ class ChartsViewController: UIViewController, ChartViewDelegate {
 
     
     func chartValueSelected(chartView: ChartViewBase, entry: ChartDataEntry, dataSetIndex: Int, highlight: ChartHighlight) {
-        phDataSelected.text = "\(entry.value) in \(months[entry.xIndex])"
-        print("\(entry.value) in \(months[entry.xIndex])")
+        phDataSelected.text = "\(entry.value) in \(phlabels[entry.xIndex])"
+        print("\(entry.value) in \(phlabels[entry.xIndex])")
     }
 
     override func viewDidLoad() {
@@ -37,22 +41,22 @@ class ChartsViewController: UIViewController, ChartViewDelegate {
         lineChartView.delegate = self
         tempChartView.delegate = self
         apiGetMeasurements(uid, fun: { (measurements: NSDictionary) -> Void in
-            let phvals = (measurements["ph"] as! NSArray).map({
+            self.phvals = (measurements["ph"] as! NSArray).map({
                 ($0 as! NSDictionary)["value"] as! Double
             })
-            let phlabels = (measurements["ph"] as! NSArray).map({
+            self.phlabels = (measurements["ph"] as! NSArray).map({
                 ($0 as! NSDictionary)["time"] as! String
             })
-            let tempvals = (measurements["temp"] as! NSArray).map({
+            self.tempvals = (measurements["temp"] as! NSArray).map({
                 ($0 as! NSDictionary)["value"] as! Double
             })
-            let templabels = (measurements["temp"] as! NSArray).map({
+            self.templabels = (measurements["temp"] as! NSArray).map({
                 ($0 as! NSDictionary)["time"] as! String
             })
             
             dispatch_async(dispatch_get_main_queue(), {
-                self.setChart(phlabels, values: phvals)
-                self.setTempChart(templabels, values: tempvals)
+                self.setChart(self.phlabels, values: self.phvals)
+                self.setTempChart(self.templabels, values: self.tempvals)
             })
         })
         navigationItem.title = "Analytics"
