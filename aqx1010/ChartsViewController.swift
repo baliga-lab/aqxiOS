@@ -41,6 +41,7 @@ class ChartsViewController: UIViewController, ChartViewDelegate {
         lineChartView.delegate = self
         tempChartView.delegate = self
         apiGetMeasurements(uid, fun: { (measurements: NSDictionary) -> Void in
+            // ammonium, alkalinity, chlorine, hardness, light, nitrate, nitrite, o2, ph, temp
             self.phvals = (measurements["ph"] as! NSArray).map({
                 ($0 as! NSDictionary)["value"] as! Double
             })
