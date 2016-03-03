@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import Charts
 
-class pHViewController: UIViewController, UITextFieldDelegate {
+class pHViewController: UIViewController, UITextFieldDelegate, ChartViewDelegate {
     
     let TAG_SYSTEM_NAME      = 4711
     let TAG_SYSTEM_TECHNIQUE = 4712
@@ -20,37 +21,110 @@ class pHViewController: UIViewController, UITextFieldDelegate {
     let TAG_SLIDER_PH      = 47200
     var uid: String = ""
     
-    
+    @IBOutlet weak var phHistory: LineChartView!
+    @IBOutlet weak var valueDateSelected: UILabel!
+    @IBOutlet weak var valueSelected: UILabel!
     @IBOutlet weak var phSubmissionStatus: UILabel!
-    
     @IBOutlet weak var phPreview: UIView!
+    
+    var phvals: [Double] = []
+    var phlabels: [String] = []
     
     @IBOutlet weak var phSlider: UISlider!
     let phCGColors = [rgb2CGColor(0xfaac59), rgb2CGColor(0xee8243), rgb2CGColor(0xe35744), rgb2CGColor(0xe93e4d), rgb2CGColor(0xea185e)]
     let phUIColors = [rgb2UIColor(0xfaac59), rgb2UIColor(0xee8243), rgb2UIColor(0xe35744), rgb2UIColor(0xe93e4d), rgb2UIColor(0xea185e)]
     
     func showError() {
-        phSubmissionStatus.text = "There was an error with your submission"
+        //phSubmissionStatus.text = "There was an error with your submission"
+        valueDateSelected.text = "There was an error with your submission"
     }
+    
+    func chartValueSelected(chartView: ChartViewBase, entry: ChartDataEntry, dataSetIndex: Int, highlight: ChartHighlight) {
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+        let myDate = phlabels[entry.xIndex]
+        let dateSelected = formatter.dateFromString(myDate)
+        formatter.dateFormat = "MMM dd yyyy, hh:mm:ss a"
+        let dateMedium = formatter.stringFromDate(dateSelected!)
+        valueSelected.text = "\(entry.value)"
+        valueDateSelected.text = "\(dateMedium)"
+        print("\(entry.value) in \(phlabels[entry.xIndex])")
+    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //let phSlider = self.view.viewWithTag(TAG_SLIDER_PH) as! UISlider
-        phSlider.layer.insertSublayer(makeGradient(phSlider.bounds, colors: phCGColors), atIndex: 0)
-//        phSlider.setThumbImage(UIImage(named: "slider-control.png" ), forState: .Normal)
-//        phSlider.setMinimumTrackImage(UIImage(named: "slider-highlight.png" ), forState: .Normal)
-//        phSlider.setMaximumTrackImage(UIImage(named: "slider-bckg.png" ), forState: .Normal)
         
+        phHistory.delegate = self
+        apiGetMeasurements(uid, fun: { (measurements: NSDictionary) -> Void in
+            // ammonium, alkalinity, chlorine, hardness, light, nitrate, nitrite, o2, ph, temp
+            self.phvals = (measurements["ph"] as! NSArray).map({
+                ($0 as! NSDictionary)["value"] as! Double
+            })
+            self.phlabels = (measurements["ph"] as! NSArray).map({
+                ($0 as! NSDictionary)["time"] as! String
+            })
+            dispatch_async(dispatch_get_main_queue(), {
+                self.setChart(self.phlabels, values: self.phvals)
+            })
+        })
+        
+        phSlider.layer.insertSublayer(makeGradient(phSlider.bounds, colors: phCGColors), atIndex: 0)
         phPreview.backgroundColor = UIColor(red: 0.89, green: 0.34, blue: 0.27, alpha: 1)
         print("uid: " + self.uid)
+        phPreview.layer.borderWidth = 1
+        //phPreview.layer.borderColor = UIColor(red:222/255.0, green:225/255.0, blue:227/255.0, alpha: 1.0).CGColor
         (self.view.viewWithTag(TAG_INPUT_PH) as! UITextField).delegate = self
+        
     }
+    
+   
+    func setChart(dataPoints: [String], values: [Double]) {
+        var dataEntries: [ChartDataEntry] = []
+        for i in 0..<dataPoints.count {
+            let dataEntry = ChartDataEntry(value: values[i], xIndex: i)
+            dataEntries.append(dataEntry)
+        }
+        
+        var colors: [UIColor] = []
+        for i in 0..<dataPoints.count {
+            let red = Double(arc4random_uniform(256))
+            let green = Double(arc4random_uniform(256))
+            let blue = Double(arc4random_uniform(256))
+            
+            let color = UIColor(red: CGFloat(red/255), green: CGFloat(green/255), blue: CGFloat(blue/255), alpha: 1)
+            colors.append(color)
+        }
+        
+        let lineChartDataSet = LineChartDataSet(yVals: dataEntries, label: "pH")
+        let lineChartData = LineChartData(xVals: dataPoints, dataSet: lineChartDataSet)
+        lineChartDataSet.setColor(UIColor.blueColor().colorWithAlphaComponent(0.5))
+        lineChartDataSet.circleRadius = 3.0
+        lineChartDataSet.setCircleColor(UIColor.blueColor())
+        lineChartDataSet.lineWidth = 2.0
+        lineChartDataSet.drawValuesEnabled = false
+        lineChartDataSet.drawVerticalHighlightIndicatorEnabled = true
+        lineChartDataSet.fillColor = UIColor.blueColor()
+        lineChartDataSet.highlightColor = UIColor.blackColor()
+        
+        
+        phHistory.data = lineChartData
+        phHistory.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
+        phHistory.descriptionText = ""
+        phHistory.autoScaleMinMaxEnabled = true
+        phHistory.noDataTextDescription = "Data will be loaded soon."
+        phHistory.maxVisibleValueCount = 60
+        phHistory.pinchZoomEnabled = false
+        phHistory.drawGridBackgroundEnabled = true
+        phHistory.drawBordersEnabled = false
+    }
+
     
     
     override func viewDidLayoutSubviews() {
-        //let margin: CGFloat = 20.0
-        //let width = view.bounds.width - 2 * margin
-        //phSlider.frame = CGRect(x: 64, y: 300, width: 280, height: 31)
+//        let margin: CGFloat = 20.0
+//        let width = view.bounds.width - 2 * margin
+//        phSlider.frame = CGRect(x: 20, y: 300, width: width, height: 31)
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -64,7 +138,7 @@ class pHViewController: UIViewController, UITextFieldDelegate {
     
     func makeGradient(bounds: CGRect, colors: [CGColor]) -> CAGradientLayer {
         let gradient = CAGradientLayer()
-        gradient.frame = phSlider.bounds
+        gradient.frame = view.bounds
         gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
         gradient.endPoint = CGPoint(x: 1.0, y: 0.5)
         gradient.colors = colors
@@ -167,7 +241,7 @@ class pHViewController: UIViewController, UITextFieldDelegate {
                         
                         self.presentViewController(alertController, animated: true, completion: nil)
                         
-                        self.phSubmissionStatus.text = String("Last submission: pH: \(phValue.text!) \n Time: \(formatter.stringFromDate(date))")
+                        self.valueDateSelected.text = String("Last submission: pH: \(phValue.text!) \n Time: \(formatter.stringFromDate(date))")
                     }
                 }
                 

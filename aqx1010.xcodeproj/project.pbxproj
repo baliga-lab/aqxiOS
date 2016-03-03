@@ -23,6 +23,7 @@
 		8AAFF2E41C18E04C0058E6D3 /* area_chart-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AAFF2E31C18E04C0058E6D3 /* area_chart-50.png */; };
 		8AAFF2E61C18E0540058E6D3 /* combo_chart-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AAFF2E51C18E0540058E6D3 /* combo_chart-50.png */; };
 		8AFAD68D1BF6A16C00756FA5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AFAD68C1BF6A16C00756FA5 /* GoogleService-Info.plist */; };
+		BB0FE5721C7D687E00CC26B1 /* OxygenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0FE5711C7D687E00CC26B1 /* OxygenViewController.swift */; };
 		BB6458131C4783E800AB3A83 /* ChartsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6458121C4783E800AB3A83 /* ChartsViewController.swift */; };
 		BB6A70051C1A7D0F003D0B64 /* home.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BB6A70041C1A7D0F003D0B64 /* home.jpg */; };
 		BB7317661C3895C600A4199D /* NitrateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7317651C3895C600A4199D /* NitrateViewController.swift */; };
@@ -110,6 +111,7 @@
 		8AAFF2E51C18E0540058E6D3 /* combo_chart-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "combo_chart-50.png"; sourceTree = "<group>"; };
 		8AFAD68C1BF6A16C00756FA5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8AFAD68E1BF6A1EA00756FA5 /* aqx1010-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "aqx1010-Bridging-Header.h"; sourceTree = "<group>"; };
+		BB0FE5711C7D687E00CC26B1 /* OxygenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OxygenViewController.swift; sourceTree = "<group>"; };
 		BB6458121C4783E800AB3A83 /* ChartsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartsViewController.swift; sourceTree = "<group>"; };
 		BB6A70041C1A7D0F003D0B64 /* home.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = home.jpg; sourceTree = "<group>"; };
 		BB7317651C3895C600A4199D /* NitrateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NitrateViewController.swift; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 				8A9C7C9C1BF6A01400A92397 /* Main.storyboard */,
 				BBF657DF1C24D8F20096DF50 /* pHViewController.swift */,
 				BBC24F811C32789F004A4DFB /* TempViewController.swift */,
+				BB0FE5711C7D687E00CC26B1 /* OxygenViewController.swift */,
 				BB7317651C3895C600A4199D /* NitrateViewController.swift */,
 				8AAFF2D21C18BE4B0058E6D3 /* isb_gray_blue_logo.png */,
 				8AAFF2D31C18BE4B0058E6D3 /* Project_Feed1010-Logo.png */,
@@ -506,6 +509,7 @@
 				BBC24F821C32789F004A4DFB /* TempViewController.swift in Sources */,
 				BB9A25921C3A4ED10044518E /* SettingsViewController.swift in Sources */,
 				8A9C7C9B1BF6A01400A92397 /* ViewController.swift in Sources */,
+				BB0FE5721C7D687E00CC26B1 /* OxygenViewController.swift in Sources */,
 				8A9C7C991BF6A01400A92397 /* AppDelegate.swift in Sources */,
 				BB73176A1C39CCC400A4199D /* AmmoniumViewController.swift in Sources */,
 				BB739F741C39ED01002D10B5 /* SocialViewController.swift in Sources */,
@@ -660,6 +664,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = aqx1010/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.baliga.aqx1010;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -679,6 +684,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = aqx1010/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.baliga.aqx1010;
 				PRODUCT_NAME = "$(TARGET_NAME)";

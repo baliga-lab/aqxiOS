@@ -24,6 +24,8 @@ class AmmoniumViewController: UIViewController, UITextFieldDelegate {
         ammoniumSlider.layer.insertSublayer(makeGradient(ammoniumSlider.bounds, colors: nh4CGColors), atIndex: 0)
         
         nh4Preview.backgroundColor = UIColor(red: 0.98, green: 0.92, blue: 0.92, alpha: 1)
+        nh4Preview.layer.borderWidth = 1
+        
         (self.view.viewWithTag(TAG_INPUT_AMMONIUM) as! UITextField).delegate = self
     }
     
@@ -42,7 +44,7 @@ class AmmoniumViewController: UIViewController, UITextFieldDelegate {
     
     func makeGradient(bounds: CGRect, colors: [CGColor]) -> CAGradientLayer {
         let gradient = CAGradientLayer()
-        gradient.frame = bounds
+        gradient.frame = view.bounds
         gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
         gradient.endPoint = CGPoint(x: 1.0, y: 0.5)
         gradient.colors = colors

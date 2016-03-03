@@ -23,6 +23,7 @@ class NitrateViewController: UIViewController, UITextFieldDelegate {
         nitrateSlider.layer.insertSublayer(makeGradient(nitrateSlider.bounds, colors: no3CGColors), atIndex: 0)
         
         no3Preview.backgroundColor = UIColor(red: 0.97, green: 0.67, blue: 0.8, alpha: 1)
+        no3Preview.layer.borderWidth = 1
         (self.view.viewWithTag(TAG_INPUT_NITRATE) as! UITextField).delegate = self
     }
     
@@ -41,7 +42,7 @@ class NitrateViewController: UIViewController, UITextFieldDelegate {
     
     func makeGradient(bounds: CGRect, colors: [CGColor]) -> CAGradientLayer {
         let gradient = CAGradientLayer()
-        gradient.frame = bounds
+        gradient.frame = view.bounds
         gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
         gradient.endPoint = CGPoint(x: 1.0, y: 0.5)
         gradient.colors = colors

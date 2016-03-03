@@ -17,7 +17,7 @@ let TAG_INPUT_PH       = 4713
 let TAG_INPUT_AMMONIUM = 4714
 let TAG_INPUT_NITRATE  = 4715
 let TAG_INPUT_NITRITE  = 4716
-let TAG_INPUT_DIO      = 4717
+let TAG_INPUT_O2      = 47170
 let TAG_INPUT_LIGHT    = 4718
 
 let TAG_SLIDER_PH      = 4720
@@ -176,6 +176,14 @@ class AqxSystemDetailViewController : UIViewController {
                 destView.uid = (self.tabBarController as! AqxSystemTabController).uid
             }
         }
+        // seque for submitting O2 measurements
+        if segue.identifier == "MeasureO2"
+        {
+            if let destView = segue.destinationViewController as? OxygenViewController {
+                destView.uid = (self.tabBarController as! AqxSystemTabController).uid
+            }
+        }
+
         // seque for submitting Temperature measurements
         if segue.identifier == "MeasureTemp"
         {
@@ -250,8 +258,9 @@ class AqxMeasurementsController : UIViewController, UITextFieldDelegate {
         (self.view.viewWithTag(TAG_INPUT_AMMONIUM) as! UITextField).delegate = self
         (self.view.viewWithTag(TAG_INPUT_NITRATE) as! UITextField).delegate = self
         (self.view.viewWithTag(TAG_INPUT_NITRITE) as! UITextField).delegate = self
-        (self.view.viewWithTag(TAG_INPUT_DIO) as! UITextField).delegate = self
+        (self.view.viewWithTag(TAG_INPUT_O2) as! UITextField).delegate = self
         (self.view.viewWithTag(TAG_INPUT_LIGHT) as! UITextField).delegate = self
+        (self.view.viewWithTag(TAG_INPUT_O2) as! UITextField).delegate = self
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -332,8 +341,8 @@ class AqxMeasurementsController : UIViewController, UITextFieldDelegate {
         let ammoniumValue = self.view.viewWithTag(TAG_INPUT_AMMONIUM) as! UITextField
         let nitrateValue = self.view.viewWithTag(TAG_INPUT_NITRATE) as! UITextField
         let nitriteValue = self.view.viewWithTag(TAG_INPUT_NITRITE) as! UITextField
-        let dioValue = self.view.viewWithTag(TAG_INPUT_DIO) as! UITextField
-        let lightValue = self.view.viewWithTag(TAG_INPUT_DIO) as! UITextField
+        let o2Value = self.view.viewWithTag(TAG_INPUT_O2) as! UITextField
+        let lightValue = self.view.viewWithTag(TAG_INPUT_O2) as! UITextField
         
         let formatter = NSDateFormatter()
         formatter.dateFormat = API_DATE_FORMAT
@@ -356,7 +365,7 @@ class AqxMeasurementsController : UIViewController, UITextFieldDelegate {
         if (ammoniumValue.text != nil) { entry["ammonium"] = NSString(string: ammoniumValue.text!).floatValue }
         if (nitrateValue.text != nil) { entry["nitrate"] = NSString(string: nitrateValue.text!).floatValue }
         if (nitriteValue.text != nil) { entry["nitrite"] = NSString(string: nitriteValue.text!).floatValue }
-        if (dioValue.text != nil) { entry["o2"] = NSString(string: dioValue.text!).floatValue }
+        if (o2Value.text != nil) { entry["o2"] = NSString(string: o2Value.text!).floatValue }
         if (lightValue.text != nil) { entry["light"] = NSString(string: lightValue.text!).floatValue }
 
         measurements.addObject(entry)
