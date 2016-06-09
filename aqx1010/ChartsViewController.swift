@@ -13,10 +13,12 @@ import Foundation
 class ChartsViewController: UIViewController, ChartViewDelegate {
     
     @IBOutlet weak var valueSelected: UILabel!
-    @IBOutlet weak var valueDateSelected: UILabel!
     @IBOutlet weak var nitrateChartView: LineChartView!
     @IBOutlet weak var tempChartView: LineChartView!
     @IBOutlet weak var lineChartView: LineChartView!
+    
+    @IBOutlet weak var scroller: UIScrollView!
+    
 
     var phvals: [Double] = []
     var phlabels: [String] = []
@@ -24,6 +26,7 @@ class ChartsViewController: UIViewController, ChartViewDelegate {
     var templabels: [String] = []
     var nitratevals: [Double] = []
     var nitratelabels: [String] = []
+    
 
     
     func chartValueSelected(chartView: ChartViewBase, entry: ChartDataEntry, dataSetIndex: Int, highlight: ChartHighlight) {
@@ -34,13 +37,27 @@ class ChartsViewController: UIViewController, ChartViewDelegate {
         formatter.dateFormat = "MMM dd yyyy, hh:mm:ss a"
         let dateMedium = formatter.stringFromDate(dateSelected!)
         
-        valueSelected.text = "\(entry.value)"
-        valueDateSelected.text = "\(dateMedium)"
+        //valueSelected.text = "Value: \(entry.value) Date: \(dateMedium)"
         print("\(entry.value) in \(phlabels[entry.xIndex])")
+        let myString = " \(entry.value)      Date: \(dateMedium)"
+        var myMutableString = NSMutableAttributedString()
+        
+        myMutableString = NSMutableAttributedString(string: myString, attributes: [NSFontAttributeName:UIFont(name: "Arial", size: 14.0)!])
+        
+        myMutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.redColor(), range: NSRange(location:1,length:7))
+        
+        myMutableString.addAttribute(NSFontAttributeName, value: UIFont(name:  "Helvetica" , size: 18.0)!, range: NSRange(location:1,length:7))
+        
+        valueSelected.attributedText = myMutableString
+
+        
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
         let uid = (self.tabBarController as! AqxSystemTabController).uid
         lineChartView.delegate = self
         tempChartView.delegate = self
@@ -66,9 +83,28 @@ class ChartsViewController: UIViewController, ChartViewDelegate {
                 ($0 as! NSDictionary)["time"] as! String
             })
             print(measurements)
+            
+            
 
             
             dispatch_async(dispatch_get_main_queue(), {
+                
+                self.valueSelected.layer.borderColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0).CGColor
+                self.valueSelected.layer.borderWidth = 2.0
+                
+                self.lineChartView.layer.borderColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0).CGColor
+                
+                self.lineChartView.layer.borderWidth = 2.0
+                self.lineChartView.layer.cornerRadius = 5.0
+                
+                    
+                
+                self.automaticallyAdjustsScrollViewInsets = false
+                self.scroller.contentInset = UIEdgeInsetsZero
+                self.scroller.scrollIndicatorInsets = UIEdgeInsetsZero
+                self.scroller.contentOffset = CGPointMake(0.0, 0.0)
+                
+                
                 self.setChart(self.phlabels, values: self.phvals)
                 self.setTempChart(self.templabels, values: self.tempvals)
                 self.setNitrateChart(self.nitratelabels, values: self.nitratevals)
@@ -96,6 +132,8 @@ class ChartsViewController: UIViewController, ChartViewDelegate {
         
         let lineChartDataSet = LineChartDataSet(yVals: dataEntries, label: "pH")
         let lineChartData = LineChartData(xVals: dataPoints, dataSet: lineChartDataSet)
+        
+        
         lineChartDataSet.setColor(UIColor.blueColor().colorWithAlphaComponent(0.5))
         lineChartDataSet.circleRadius = 3.0
         lineChartDataSet.setCircleColor(UIColor.blueColor())
@@ -103,7 +141,7 @@ class ChartsViewController: UIViewController, ChartViewDelegate {
         lineChartDataSet.drawValuesEnabled = false
         lineChartDataSet.drawVerticalHighlightIndicatorEnabled = true
         lineChartDataSet.fillColor = UIColor.blueColor()
-        lineChartDataSet.highlightColor = UIColor.blackColor()
+        lineChartDataSet.highlightColor = UIColor.blueColor()
 
         
         lineChartView.data = lineChartData
@@ -113,8 +151,9 @@ class ChartsViewController: UIViewController, ChartViewDelegate {
         lineChartView.noDataTextDescription = "Data will be loaded soon."
         lineChartView.maxVisibleValueCount = 60
         lineChartView.pinchZoomEnabled = false
-        lineChartView.drawGridBackgroundEnabled = true
+        lineChartView.drawGridBackgroundEnabled = false
         lineChartView.drawBordersEnabled = false
+        lineChartView.setExtraOffsets(left: 1, top: 10, right: 1, bottom: 1)
     }
     
     func setTempChart(dataPoints: [String], values: [Double]) {

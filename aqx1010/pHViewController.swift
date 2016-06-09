@@ -22,9 +22,7 @@ class pHViewController: UIViewController, UITextFieldDelegate, ChartViewDelegate
     var uid: String = ""
     
     @IBOutlet weak var phHistory: LineChartView!
-    @IBOutlet weak var valueDateSelected: UILabel!
     @IBOutlet weak var valueSelected: UILabel!
-    @IBOutlet weak var phSubmissionStatus: UILabel!
     @IBOutlet weak var phPreview: UIView!
     
     var phvals: [Double] = []
@@ -36,7 +34,7 @@ class pHViewController: UIViewController, UITextFieldDelegate, ChartViewDelegate
     
     func showError() {
         //phSubmissionStatus.text = "There was an error with your submission"
-        valueDateSelected.text = "There was an error with your submission"
+        valueSelected.text = "There was an error with your submission"
     }
     
     func chartValueSelected(chartView: ChartViewBase, entry: ChartDataEntry, dataSetIndex: Int, highlight: ChartHighlight) {
@@ -46,14 +44,19 @@ class pHViewController: UIViewController, UITextFieldDelegate, ChartViewDelegate
         let dateSelected = formatter.dateFromString(myDate)
         formatter.dateFormat = "MMM dd yyyy, hh:mm:ss a"
         let dateMedium = formatter.stringFromDate(dateSelected!)
-        valueSelected.text = "\(entry.value)"
-        valueDateSelected.text = "\(dateMedium)"
+        valueSelected.text = "pH: \(entry.value) Date: \(dateMedium)"
         print("\(entry.value) in \(phlabels[entry.xIndex])")
     }
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let datePicker = self.view.viewWithTag(TAG_DATE_PICKER) as! UIDatePicker
+        //datePicker.setValue(UIColor.whiteColor(), forKeyPath: "textColor")
+        datePicker.datePickerMode = .CountDownTimer
+        datePicker.datePickerMode = .DateAndTime
+        
         
         phHistory.delegate = self
         apiGetMeasurements(uid, fun: { (measurements: NSDictionary) -> Void in
@@ -73,7 +76,7 @@ class pHViewController: UIViewController, UITextFieldDelegate, ChartViewDelegate
         phPreview.backgroundColor = UIColor(red: 0.89, green: 0.34, blue: 0.27, alpha: 1)
         print("uid: " + self.uid)
         phPreview.layer.borderWidth = 1
-        //phPreview.layer.borderColor = UIColor(red:222/255.0, green:225/255.0, blue:227/255.0, alpha: 1.0).CGColor
+        phPreview.layer.borderColor = UIColor(red:255/255.0, green:255/255.0, blue:255/255.0, alpha: 1.0).CGColor
         (self.view.viewWithTag(TAG_INPUT_PH) as! UITextField).delegate = self
         
     }
@@ -106,8 +109,10 @@ class pHViewController: UIViewController, UITextFieldDelegate, ChartViewDelegate
         lineChartDataSet.drawVerticalHighlightIndicatorEnabled = true
         lineChartDataSet.fillColor = UIColor.blueColor()
         lineChartDataSet.highlightColor = UIColor.blackColor()
+        //phHistory.backgroundColor = UIColor(red: 95/255, green: 194/255, blue: 197/255, alpha: 1)
         
-        
+        //phHistory.gridBackgroundColor = UIColor(red: 95/255, green: 194/255, blue: 197/255, alpha: 1)
+
         phHistory.data = lineChartData
         phHistory.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
         phHistory.descriptionText = ""
@@ -176,7 +181,7 @@ class pHViewController: UIViewController, UITextFieldDelegate, ChartViewDelegate
         let blueInterp = interpolate(Float(blue0), to: Float(blue1), fraction: fraction)
         let greenInterp = interpolate(Float(green0), to: Float(green1), fraction: fraction)
         phPreview.backgroundColor = UIColor(red: CGFloat(redInterp), green: CGFloat(greenInterp), blue: CGFloat(blueInterp), alpha: 1.0)
-        textfield.backgroundColor = UIColor(red: CGFloat(redInterp), green: CGFloat(greenInterp), blue: CGFloat(blueInterp), alpha: 0.5)
+        textfield.backgroundColor = UIColor(red: CGFloat(redInterp), green: CGFloat(greenInterp), blue: CGFloat(blueInterp), alpha: 1.0)
     }
     
     
@@ -184,6 +189,7 @@ class pHViewController: UIViewController, UITextFieldDelegate, ChartViewDelegate
         self.view.endEditing(true)
         var phValueError = false
         let datePicker = self.view.viewWithTag(TAG_DATE_PICKER) as! UIDatePicker
+        
         let date: NSDate = datePicker.date
         let phValue = self.view.viewWithTag(TAG_INPUT_PH) as! UITextField
         
@@ -241,7 +247,7 @@ class pHViewController: UIViewController, UITextFieldDelegate, ChartViewDelegate
                         
                         self.presentViewController(alertController, animated: true, completion: nil)
                         
-                        self.valueDateSelected.text = String("Last submission: pH: \(phValue.text!) \n Time: \(formatter.stringFromDate(date))")
+                        self.valueSelected.text = String("Last submission: pH: \(phValue.text!) \n Time: \(formatter.stringFromDate(date))")
                     }
                 }
                 
@@ -250,7 +256,7 @@ class pHViewController: UIViewController, UITextFieldDelegate, ChartViewDelegate
             task.resume()
         } catch {
             print("Error:\n \(error)")
-            self.phSubmissionStatus.text = "Error:\n \(error)"
+            self.valueSelected.text = "Error:\n \(error)"
         }
     }
 }

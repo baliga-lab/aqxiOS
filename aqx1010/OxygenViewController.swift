@@ -16,7 +16,6 @@ class OxygenViewController: UIViewController, UITextFieldDelegate, ChartViewDele
     let TAG_DATE_PICKER    = 4711
     let TAG_INPUT_O2       = 47170
     @IBOutlet weak var o2History: LineChartView!
-    @IBOutlet weak var valueDateSelected: UILabel!
     @IBOutlet weak var valueSelected: UILabel!
     
     var uid: String = ""
@@ -25,7 +24,7 @@ class OxygenViewController: UIViewController, UITextFieldDelegate, ChartViewDele
     
     
     func showError() {
-        valueDateSelected.text = "There was an error with your submission"
+        valueSelected.text = "There was an error with your submission"
     }
     
     func chartValueSelected(chartView: ChartViewBase, entry: ChartDataEntry, dataSetIndex: Int, highlight: ChartHighlight) {
@@ -35,8 +34,7 @@ class OxygenViewController: UIViewController, UITextFieldDelegate, ChartViewDele
         let dateSelected = formatter.dateFromString(myDate)
         formatter.dateFormat = "MMM dd yyyy, hh:mm:ss a"
         let dateMedium = formatter.stringFromDate(dateSelected!)
-        valueSelected.text = "\(entry.value)"
-        valueDateSelected.text = "\(dateMedium)"
+        valueSelected.text = "\(entry.value) | \(dateMedium)"
         print("\(entry.value) in \(o2labels[entry.xIndex])")
     }
     
@@ -179,7 +177,7 @@ class OxygenViewController: UIViewController, UITextFieldDelegate, ChartViewDele
                         
                         self.presentViewController(alertController, animated: true, completion: nil)
                         
-                        self.valueDateSelected.text = String("Last submission: pH: \(o2Value.text!) \n Time: \(formatter.stringFromDate(date))")
+                        self.valueSelected.text = String("Last submission: pH: \(o2Value.text!) \n Time: \(formatter.stringFromDate(date))")
                     }
                 }
                 
@@ -188,7 +186,7 @@ class OxygenViewController: UIViewController, UITextFieldDelegate, ChartViewDele
             task.resume()
         } catch {
             print("Error:\n \(error)")
-            self.valueDateSelected.text = "Error:\n \(error)"
+            self.valueSelected.text = "Error:\n \(error)"
         }
     }
 }

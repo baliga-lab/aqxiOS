@@ -14,16 +14,14 @@ class TempViewController: UIViewController, UITextFieldDelegate, ChartViewDelega
     let TAG_DATE_PICKER    = 4711
     let TAG_INPUT_TEMP     = 47120
     @IBOutlet weak var tempHistory: LineChartView!
-    @IBOutlet weak var valueDateSelected: UILabel!
     @IBOutlet weak var valueSelected: UILabel!
     
     var uid: String = ""
     var tempvals: [Double] = []
     var templabels: [String] = []
     
-    
     func showError() {
-        valueDateSelected.text = "There was an error with your submission"
+        valueSelected.text = "There was an error with your submission"
     }
     
     func chartValueSelected(chartView: ChartViewBase, entry: ChartDataEntry, dataSetIndex: Int, highlight: ChartHighlight) {
@@ -33,8 +31,7 @@ class TempViewController: UIViewController, UITextFieldDelegate, ChartViewDelega
         let dateSelected = formatter.dateFromString(myDate)
         formatter.dateFormat = "MMM dd yyyy, hh:mm:ss a"
         let dateMedium = formatter.stringFromDate(dateSelected!)
-        valueSelected.text = "\(entry.value)"
-        valueDateSelected.text = "\(dateMedium)"
+        valueSelected.text = "\(entry.value) | \(dateMedium)"
         print("\(entry.value) in \(templabels[entry.xIndex])")
     }
 
@@ -178,7 +175,7 @@ class TempViewController: UIViewController, UITextFieldDelegate, ChartViewDelega
                         
                         self.presentViewController(alertController, animated: true, completion: nil)
                         
-                        self.valueDateSelected.text = String("Last submission: Temp: \(tempValue.text!) °C \n Time: \(formatter.stringFromDate(date))")
+                        self.valueSelected.text = String("Last submission: Temp: \(tempValue.text!) °C \n Time: \(formatter.stringFromDate(date))")
                     }
                 }
                 
@@ -187,7 +184,7 @@ class TempViewController: UIViewController, UITextFieldDelegate, ChartViewDelega
             task.resume()
         } catch {
             print("Error:\n \(error)")
-            self.valueDateSelected.text = "Error:\n \(error)"
+            self.valueSelected.text = "Error:\n \(error)"
         }
     }
 
